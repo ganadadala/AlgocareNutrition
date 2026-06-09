@@ -72,6 +72,68 @@
   .wrap{max-width:980px;margin:0 auto;padding:0 28px 120px;}
   .banner.first{margin-top:48px;}
 
+  /* anchor landing offset so headings aren't flush to the top edge */
+  .banner, .prod{scroll-margin-top:24px;}
+
+  /* ---------- Table of contents ---------- */
+  .toc{
+    margin:48px 0 8px;
+    padding:26px 28px 30px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-top:3px solid var(--green);
+    border-radius:12px;
+  }
+  .toc-title{
+    margin:0 0 18px;
+    font-size:18px;
+    font-weight:800;
+    letter-spacing:-0.02em;
+    display:flex;align-items:baseline;gap:10px;
+  }
+  .toc-title span{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    font-weight:500;
+  }
+  .toc ol{list-style:none;margin:0;padding:0;}
+  .toc-sections{
+    counter-reset:sec;
+    padding-bottom:16px;
+    margin-bottom:16px;
+    border-bottom:1px dashed var(--line);
+  }
+  .toc-sections li{counter-increment:sec;margin:3px 0;}
+  .toc-sections a{
+    display:flex;align-items:baseline;gap:12px;
+    padding:6px 8px;border-radius:7px;border-bottom:none;
+    color:var(--ink);font-weight:700;font-size:15px;
+  }
+  .toc-sections a::before{
+    content:counter(sec,decimal-leading-zero);
+    font-family:var(--mono);font-size:12px;font-weight:600;
+    color:var(--green);flex:none;
+  }
+  .toc-sections em{font-style:normal;color:var(--ink-faint);font-weight:500;font-size:13px;}
+  .toc-prods{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:2px 14px;
+  }
+  .toc-prods a{
+    display:flex;align-items:baseline;gap:10px;
+    padding:6px 8px;border-radius:7px;border-bottom:none;
+    color:var(--ink-soft);font-size:13.5px;
+  }
+  .toc-prods .n{
+    font-family:var(--mono);font-size:11.5px;font-weight:600;
+    color:var(--green);flex:none;
+  }
+  .toc a:hover{background:var(--green-tint);color:var(--accent-ink);}
+
   /* ---------- Masthead ---------- */
   .masthead{
     padding:64px 0 40px;
@@ -300,14 +362,42 @@
     table{font-size:11.5px;}
     th,td{padding:7px 9px;}
     a{word-break:break-word;overflow-wrap:anywhere;}
+    .toc{padding:20px 16px 22px;margin-top:32px;}
+    .toc-prods{grid-template-columns:1fr;}
   }
 </style>
 </head>
 <body>
 <div class="wrap">
 
+  <!-- ============== 목차 ============== -->
+  <nav class="toc" aria-label="목차">
+    <p class="toc-title">목차<span>Contents</span></p>
+    <ol class="toc-sections">
+      <li><a href="#sec-1">지침</a></li>
+      <li><a href="#sec-2">알고케어 뉴트리션 설계 철학 <em>[14종 보틀 공통]</em></a></li>
+      <li><a href="#sec-3">알고케어 뉴트리션 14종 보틀 상세</a></li>
+    </ol>
+    <ol class="toc-prods">
+      <li><a href="#p1"><span class="n">01</span>멀티비타민미네랄</a></li>
+      <li><a href="#p2"><span class="n">02</span>장용성 초임계 rTG 오메가3</a></li>
+      <li><a href="#p3"><span class="n">03</span>비타민D3</a></li>
+      <li><a href="#p4"><span class="n">04</span>프로바이오틱스</a></li>
+      <li><a href="#p5"><span class="n">05</span>칼슘&amp;마그네슘</a></li>
+      <li><a href="#p6"><span class="n">06</span>장용성 코큐텐</a></li>
+      <li><a href="#p7"><span class="n">07</span>장용성 루테인지아잔틴</a></li>
+      <li><a href="#p8"><span class="n">08</span>밀크씨슬</a></li>
+      <li><a href="#p9"><span class="n">09</span>시너지 마그네슘</a></li>
+      <li><a href="#p10"><span class="n">10</span>홍경천&amp;테아닌</a></li>
+      <li><a href="#p11"><span class="n">11</span>바나바</a></li>
+      <li><a href="#p12"><span class="n">12</span>보스웰리아</a></li>
+      <li><a href="#p13"><span class="n">13</span>녹차카테킨</a></li>
+      <li><a href="#p14"><span class="n">14</span>멜라토닌</a></li>
+    </ol>
+  </nav>
+
   <!-- ============== 지침 ============== -->
-  <section class="banner first">
+  <section class="banner first" id="sec-1">
     <span class="k">Section 01</span>
     <h2>지침</h2>
   </section>
@@ -329,7 +419,7 @@
     </li>
   </ul>
 
-  <h4>2. 각 보틀별 핵심 품질 판단 기준은 '각 보틀 별 상세 내용.pdf'을 준수한다.</h4>
+  <h4>2. 각 보틀별 핵심 품질 판단 기준은 '각 보틀 별 상세 내용'을 준수한다.</h4>
 
   <h4>3. 평가 결과 작성 방식</h4>
   <p>결과는 반드시 아래 표 형식으로만 작성한다.</p>
@@ -350,7 +440,7 @@
   <ul><li>깔끔한 답변을 지향하며, 추가 설명, 장문 해설, 후속 질문 제안은 작성하지 않는다.</li></ul>
 
   <!-- ============== 설계 철학 ============== -->
-  <section class="banner">
+  <section class="banner" id="sec-2">
     <span class="k">Section 02</span>
     <h2>알고케어 뉴트리션 설계 철학 [14종 보틀 공통]</h2>
   </section>
@@ -408,13 +498,13 @@
   <p>알고케어는 단순히 제조 시점의 함량만 맞추는 것이 아니라, 유통기한 동안 표시함량이 유지될 수 있도록 성분별 안전적용률을 설계에 반영했습니다. 제조·보관·유통 과정에서 각 성분은 안정성에 따라 함량 변화가 발생할 수 있기 때문에, 알고케어는 각 성분의 특성과 예상되는 함량 변화를 고려해 제품별 안전적용률을 설정했습니다. 이러한 설계는 고함량이나 효능 강화를 위한 설계가 아니라, 소비자가 섭취하는 시점까지 표시 기준을 안정적으로 유지하기 위한 품질관리 중심의 설계입니다.</p>
 
   <!-- ============== 14종 상세 ============== -->
-  <section class="banner">
+  <section class="banner" id="sec-3">
     <span class="k">Section 03</span>
     <h2>알고케어 뉴트리션 14종 보틀 상세</h2>
   </section>
 
   <!-- 1 멀티비타민미네랄 -->
-  <div class="prod"><span class="num">01</span><h3>알고케어 뉴트리션 멀티비타민미네랄</h3></div>
+  <div class="prod" id="p1"><span class="num">01</span><h3>알고케어 뉴트리션 멀티비타민미네랄</h3></div>
   <span class="tag">건강기능식품 _ [영양소] 제품</span>
   <ul>
     <li>13종 멀티비타민과 8종의 미네랄이 포함된, 데일리 필수 영양제</li>
@@ -506,7 +596,7 @@
   </table></div>
 
   <!-- 2 오메가3 -->
-  <div class="prod"><span class="num">02</span><h3>알고케어 뉴트리션 장용성 초임계 rTG 오메가3</h3></div>
+  <div class="prod" id="p2"><span class="num">02</span><h3>알고케어 뉴트리션 장용성 초임계 rTG 오메가3</h3></div>
   <span class="tag">건강기능식품 _ [고시형] 제품</span>
   <span class="claim">1. 혈중 중성지질 개선･혈행 개선에 도움을 줄 수 있음.</span>
   <span class="claim">2. 기억력 개선에 도움을 줄 수 있음.</span>
@@ -548,7 +638,7 @@
   </table></div>
 
   <!-- 3 비타민D3 -->
-  <div class="prod"><span class="num">03</span><h3>알고케어 뉴트리션 비타민D3</h3></div>
+  <div class="prod" id="p3"><span class="num">03</span><h3>알고케어 뉴트리션 비타민D3</h3></div>
   <span class="tag">건강기능식품 _ [영양소] 제품</span>
   <span class="claim">1. 칼슘과 인이 흡수되고 이용되는데 필요</span>
   <span class="claim">2. 뼈의 형성과 유지에 필요</span>
@@ -578,7 +668,7 @@
   </table></div>
 
   <!-- 4 프로바이오틱스 -->
-  <div class="prod"><span class="num">04</span><h3>알고케어 뉴트리션 프로바이오틱스</h3></div>
+  <div class="prod" id="p4"><span class="num">04</span><h3>알고케어 뉴트리션 프로바이오틱스</h3></div>
   <span class="tag">건강기능식품 _ [고시형] 제품</span>
   <span class="claim">1. 유산균 증식 및 유해균 억제에 도움을 줄 수 있음</span>
   <span class="claim">2. 배변활동 원활에 도움을 줄 수 있음</span>
@@ -667,7 +757,7 @@
   </table></div>
 
   <!-- 5 칼슘마그네슘 -->
-  <div class="prod"><span class="num">05</span><h3>알고케어 뉴트리션 칼슘&amp;마그네슘</h3></div>
+  <div class="prod" id="p5"><span class="num">05</span><h3>알고케어 뉴트리션 칼슘&amp;마그네슘</h3></div>
   <span class="tag">건강기능식품 _ [영양소] 제품</span>
   <span class="claim">칼슘 1. 뼈와 치아 형성에 필요</span>
   <span class="claim">칼슘 2. 신경과 근육 기능 유지에 필요</span>
@@ -734,7 +824,7 @@
   </table></div>
 
   <!-- 6 코큐텐 -->
-  <div class="prod"><span class="num">06</span><h3>알고케어 뉴트리션 장용성 코큐텐</h3></div>
+  <div class="prod" id="p6"><span class="num">06</span><h3>알고케어 뉴트리션 장용성 코큐텐</h3></div>
   <span class="tag">건강기능식품 _ [고시형] 제품</span>
   <span class="claim">항산화 및 높은 혈압 감소에 도움을 줄 수 있음</span>
   <ul>
@@ -779,7 +869,7 @@
   </table></div>
 
   <!-- 7 루테인지아잔틴 -->
-  <div class="prod"><span class="num">07</span><h3>알고케어 뉴트리션 장용성 루테인지아잔틴</h3></div>
+  <div class="prod" id="p7"><span class="num">07</span><h3>알고케어 뉴트리션 장용성 루테인지아잔틴</h3></div>
   <span class="tag">건강기능식품 _ [개별인정형_2024-25호 마리골드꽃추출물(지아잔틴함유)] 제품</span>
   <span class="claim">노화로 인해 감소될 수 있는 황반색소밀도를 유지하여 눈 건강에 도움을 줄 수 있음.</span>
   <ul>
@@ -816,7 +906,7 @@
   </table></div>
 
   <!-- 8 밀크씨슬 -->
-  <div class="prod"><span class="num">08</span><h3>알고케어 뉴트리션 밀크씨슬</h3></div>
+  <div class="prod" id="p8"><span class="num">08</span><h3>알고케어 뉴트리션 밀크씨슬</h3></div>
   <span class="tag">건강기능식품 _ [고시형] 제품</span>
   <span class="claim">간 건강에 도움을 줄 수 있음</span>
   <ul>
@@ -845,7 +935,7 @@
   </table></div>
 
   <!-- 9 시너지 마그네슘 -->
-  <div class="prod"><span class="num">09</span><h3>알고케어 시너지 마그네슘</h3></div>
+  <div class="prod" id="p9"><span class="num">09</span><h3>알고케어 시너지 마그네슘</h3></div>
   <span class="tag">건강기능식품 _ [영양소] 제품</span>
   <span class="claim">1. 에너지 이용에 필요</span>
   <span class="claim">2. 신경과 근육 기능 유지에 필요</span>
@@ -891,7 +981,7 @@
   </table></div>
 
   <!-- 10 홍경천테아닌 -->
-  <div class="prod"><span class="num">10</span><h3>알고케어 뉴트리션 홍경천&amp;테아닌</h3></div>
+  <div class="prod" id="p10"><span class="num">10</span><h3>알고케어 뉴트리션 홍경천&amp;테아닌</h3></div>
   <span class="tag">건강기능식품 _ [고시형] 제품</span>
   <span class="claim">1. 테아닌 : 스트레스로 인한 긴장완화에 도움을 줄 수 있음</span>
   <span class="claim">2. 홍경천 추출물 : 스트레스로 인한 피로 개선에 도움을 수 있음</span>
@@ -929,7 +1019,7 @@
   </table></div>
 
   <!-- 11 바나바 -->
-  <div class="prod"><span class="num">11</span><h3>알고케어 뉴트리션 바나바</h3></div>
+  <div class="prod" id="p11"><span class="num">11</span><h3>알고케어 뉴트리션 바나바</h3></div>
   <span class="tag">건강기능식품 _ [고시형] 제품</span>
   <span class="claim">1. 크롬 : 체내 탄수화물, 지방, 단백질 대사에 관여</span>
   <span class="claim">2. 바나바잎 추출물 : 식후 혈당상승 억제에 도움을 줄 수 있음</span>
@@ -964,7 +1054,7 @@
   </table></div>
 
   <!-- 12 보스웰리아 -->
-  <div class="prod"><span class="num">12</span><h3>알고케어 뉴트리션 보스웰리아</h3></div>
+  <div class="prod" id="p12"><span class="num">12</span><h3>알고케어 뉴트리션 보스웰리아</h3></div>
   <span class="tag">건강기능식품 _ [개별인정형_2022-17호 보스웰리아추출물(SERRATRIN)] 제품</span>
   <span class="claim">관절 및 연골 건강에 도움을 줄 수 있음.</span>
   <ul>
@@ -1000,7 +1090,7 @@
   </table></div>
 
   <!-- 13 녹차카테킨 -->
-  <div class="prod"><span class="num">13</span><h3>알고케어 뉴트리션 녹차카테킨</h3></div>
+  <div class="prod" id="p13"><span class="num">13</span><h3>알고케어 뉴트리션 녹차카테킨</h3></div>
   <span class="tag">건강기능식품 _ [고시형] 제품</span>
   <span class="claim">녹차추출물 : 항산화 / 체지방 감소 / 혈중 콜레스테롤 개선에 도움을 줄 수 있음.</span>
   <ul>
@@ -1034,7 +1124,7 @@
   </table></div>
 
   <!-- 14 멜라토닌 -->
-  <div class="prod"><span class="num">14</span><h3>알고케어 뉴트리션 멜라토닌</h3></div>
+  <div class="prod" id="p14"><span class="num">14</span><h3>알고케어 뉴트리션 멜라토닌</h3></div>
   <span class="tag">일반식품 _ [과.채가공품] 제품</span>
   <ul>
     <li>합성이 아닌 식물성 피스타치오 유래 멜라토닌으로, melostacio™ 3% 표준화 원료 사용</li>
