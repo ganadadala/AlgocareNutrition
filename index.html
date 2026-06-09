@@ -75,9 +75,48 @@
   /* anchor landing offset so headings aren't flush to the top edge */
   .banner, .prod{scroll-margin-top:24px;}
 
+  /* ---------- GPT button ---------- */
+  .gpt-btn{
+    display:flex;align-items:center;gap:16px;
+    margin:40px 0 0;
+    padding:18px 20px;
+    border-radius:16px;
+    border:none;
+    text-decoration:none;
+    color:#fff;
+    background:linear-gradient(135deg, #1F6F52 0%, #2F8F66 55%, #3AA978 100%);
+    box-shadow:0 10px 26px -10px rgba(31,111,82,.6), inset 0 1px 0 rgba(255,255,255,.18);
+    transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
+  }
+  .gpt-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 16px 34px -12px rgba(31,111,82,.7), inset 0 1px 0 rgba(255,255,255,.22);
+    filter:brightness(1.04);
+  }
+  .gpt-btn:active{transform:translateY(0);filter:brightness(.97);}
+  .gpt-ico{
+    flex:none;
+    width:44px;height:44px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(255,255,255,.16);
+    color:#fff;
+  }
+  .gpt-txt{display:flex;flex-direction:column;gap:2px;line-height:1.25;flex:1;min-width:0;}
+  .gpt-label{font-size:18px;font-weight:800;letter-spacing:-0.02em;}
+  .gpt-sub{
+    font-family:var(--mono);
+    font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;
+    color:rgba(255,255,255,.72);font-weight:500;
+  }
+  .gpt-arrow{
+    flex:none;color:#fff;opacity:.85;
+    transition:transform .15s ease;
+  }
+  .gpt-btn:hover .gpt-arrow{transform:translateX(4px);opacity:1;}
+
   /* ---------- Table of contents ---------- */
   .toc{
-    margin:48px 0 8px;
+    margin:20px 0 8px;
     padding:26px 28px 30px;
     background:var(--card);
     border:1px solid var(--line);
@@ -368,7 +407,11 @@
     table{font-size:13px;}
     th,td{padding:8px 10px;}
     a{word-break:break-word;overflow-wrap:anywhere;}
-    .toc{padding:20px 16px 22px;margin-top:32px;}
+    .toc{padding:20px 16px 22px;margin-top:16px;}
+    .gpt-btn{margin-top:28px;padding:15px 16px;gap:13px;}
+    .gpt-ico{width:40px;height:40px;}
+    .gpt-label{font-size:16px;}
+    .gpt-sub{font-size:10.5px;}
     .toc-prods{grid-template-columns:1fr;margin-left:12px;padding-left:12px;}
     .toc-title{font-size:20px;}
     .toc-sections a{font-size:16px;}
@@ -378,6 +421,22 @@
 </head>
 <body>
 <div class="wrap">
+
+  <!-- ============== GPT 버튼 ============== -->
+  <a class="gpt-btn" href="https://chatgpt.com/g/g-6a27936b820481919afc70deea80b230-algocare-nutrition-evaluator" target="_blank" rel="noopener">
+    <span class="gpt-ico" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3a4 4 0 0 1 3.9 3.1A4 4 0 0 1 18 13.7M12 3a4 4 0 0 0-3.9 3.1A4 4 0 0 0 6 13.7M12 3v18M6 13.7A4 4 0 0 0 9.9 21 4 4 0 0 0 12 21M18 13.7A4 4 0 0 1 14.1 21 4 4 0 0 1 12 21"/>
+      </svg>
+    </span>
+    <span class="gpt-txt">
+      <span class="gpt-label">GPT로 알고케어 뉴트리션 평가하기</span>
+      <span class="gpt-sub">AlgoCare Nutrition Evaluator</span>
+    </span>
+    <span class="gpt-arrow" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </span>
+  </a>
 
   <!-- ============== 목차 ============== -->
   <nav class="toc" aria-label="목차">
