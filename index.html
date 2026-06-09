@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+<title>알고케어 뉴트리션 보틀 퀄리티 자료</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light dark;
+    --bg:#FBFCFB;
+    --card:#FFFFFF;
+    --ink:#18221E;
+    --ink-soft:#46544D;
+    --ink-faint:#76837C;
+    --line:#E2E8E3;
+    --line-soft:#EEF2EE;
+    --green:#2F6B4F;
+    --green-deep:#1F4A37;
+    --green-tint:#EAF2EC;
+    --accent-ink:#1F4A37;      /* prod titles, claim & price text */
+    --claim-bg:#EAF2EC;
+    --amber:#B46A1E;
+    --amber-tint:#FBF1E3;
+    --amber-border:#EBD9BF;
+    --row-alt:#FAFBFA;
+    --th-bg:#1F4A37;
+    --th-ink:#FFFFFF;
+    --tag-ink:#B46A1E;
+    --mono:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#13181A;
+      --card:#1A201D;
+      --ink:#E9EEEA;
+      --ink-soft:#B3BFB7;
+      --ink-faint:#808E86;
+      --line:#2C3631;
+      --line-soft:#222A26;
+      --green:#74BB94;
+      --green-deep:#274E3C;
+      --green-tint:#1E2C25;
+      --accent-ink:#9AD7B6;
+      --claim-bg:#1C2A23;
+      --amber:#E2A95E;
+      --amber-tint:#2A2316;
+      --amber-border:#5A4A2C;
+      --row-alt:#1E2522;
+      --th-bg:#274E3C;
+      --th-ink:#EAF4EE;
+      --tag-ink:#E2A95E;
+    }
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;background:var(--bg);-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size:15px;
+    line-height:1.72;
+    letter-spacing:-0.01em;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:0 28px 120px;}
+  .banner.first{margin-top:48px;}
+
+  /* ---------- Masthead ---------- */
+  .masthead{
+    padding:64px 0 40px;
+    border-bottom:2px solid var(--ink);
+    margin-bottom:8px;
+  }
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--green);
+    margin:0 0 18px;
+  }
+  .masthead h1{
+    font-size:clamp(30px,5vw,46px);
+    line-height:1.18;
+    font-weight:800;
+    letter-spacing:-0.03em;
+    margin:0;
+  }
+  .masthead h1 .apple{ -webkit-text-fill-color:initial; }
+  .masthead .sub{
+    margin:20px 0 0;
+    color:var(--ink-soft);
+    font-size:15px;
+    max-width:62ch;
+  }
+  .crumbs{
+    margin-top:24px;
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--ink-faint);
+    letter-spacing:0.02em;
+  }
+  .crumbs span{color:var(--green);}
+
+  /* ---------- Section banner (orange highlight in source) ---------- */
+  .banner{
+    margin:72px 0 28px;
+    padding:18px 22px;
+    background:var(--amber-tint);
+    border-left:5px solid var(--amber);
+    border-radius:4px;
+  }
+  .banner .k{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--amber);
+    display:block;
+    margin-bottom:6px;
+  }
+  .banner h2{
+    margin:0;
+    font-size:clamp(20px,3vw,27px);
+    font-weight:800;
+    letter-spacing:-0.025em;
+    color:var(--ink);
+  }
+
+  /* ---------- Product heading ---------- */
+  .prod{
+    margin:54px 0 18px;
+    padding-top:26px;
+    border-top:1px solid var(--line);
+    display:flex;
+    gap:16px;
+    align-items:baseline;
+  }
+  .prod .num{
+    font-family:var(--mono);
+    font-size:14px;
+    font-weight:600;
+    color:#fff;
+    background:var(--green);
+    min-width:34px;height:34px;
+    display:inline-flex;align-items:center;justify-content:center;
+    border-radius:8px;
+    flex:none;
+    transform:translateY(2px);
+  }
+  .prod h3{
+    margin:0;
+    font-size:21px;
+    font-weight:800;
+    letter-spacing:-0.025em;
+    color:var(--accent-ink);
+  }
+
+  h4{
+    margin:30px 0 12px;
+    font-size:16px;
+    font-weight:700;
+    letter-spacing:-0.02em;
+  }
+
+  /* ---------- Body text ---------- */
+  p{margin:0 0 14px;}
+  a{color:var(--green);text-decoration:none;border-bottom:1px solid var(--green-tint);word-break:break-all;}
+  a:hover{border-bottom-color:var(--green);}
+  strong{font-weight:700;}
+
+  ul{margin:6px 0 16px;padding-left:0;list-style:none;}
+  ul li{
+    position:relative;
+    padding-left:18px;
+    margin:5px 0;
+  }
+  ul li::before{
+    content:"";
+    position:absolute;left:2px;top:11px;
+    width:5px;height:5px;border-radius:50%;
+    background:var(--green);
+  }
+  ul ul li::before{background:none;border:1px solid var(--ink-faint);width:5px;height:5px;top:11px;}
+  ul ul li{padding-left:16px;}
+  ul ul{margin:3px 0 6px;}
+  ul ul ul li::before{background:var(--line);border:none;}
+
+  /* claim chips (the back-tick code blocks in source = functional claims) */
+  .claim{
+    display:block;
+    background:var(--claim-bg);
+    color:var(--accent-ink);
+    border-radius:6px;
+    padding:8px 14px;
+    margin:5px 0;
+    font-size:13.5px;
+    font-weight:600;
+    border-left:3px solid var(--green);
+  }
+  .tag{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.04em;
+    color:var(--tag-ink);
+    background:var(--amber-tint);
+    border:1px solid var(--amber-border);
+    padding:3px 9px;
+    border-radius:999px;
+    margin:0 0 8px;
+  }
+  .price{
+    display:inline-block;
+    font-family:var(--mono);
+    font-weight:600;
+    color:var(--accent-ink);
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:6px 12px;
+    margin:8px 0;
+    font-size:13.5px;
+  }
+
+  /* ---------- Tables ---------- */
+  .tscroll{
+    overflow-x:auto;
+    margin:16px 0 22px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:var(--card);
+  }
+  table{
+    border-collapse:collapse;
+    width:100%;
+    font-size:12.5px;
+    line-height:1.5;
+    min-width:540px;
+  }
+  th,td{
+    border-bottom:1px solid var(--line-soft);
+    border-right:1px solid var(--line-soft);
+    padding:9px 12px;
+    text-align:left;
+    vertical-align:top;
+  }
+  th:last-child,td:last-child{border-right:none;}
+  thead th{
+    background:var(--th-bg);
+    color:var(--th-ink);
+    font-weight:600;
+    font-size:12px;
+    letter-spacing:-0.01em;
+    border-right-color:rgba(255,255,255,.14);
+    border-bottom:none;
+    position:sticky;top:0;
+  }
+  tbody tr:nth-child(even){background:var(--row-alt);}
+  tbody tr:hover{background:var(--green-tint);}
+  td .sub-row{color:var(--ink-faint);}
+  .num-table td{font-variant-numeric:tabular-nums;}
+  .mono{font-family:var(--mono);}
+
+  /* small two-col tables */
+  .mini{min-width:0;}
+
+  hr.soft{border:none;border-top:1px dashed var(--line);margin:30px 0;}
+
+  .foot{
+    margin-top:90px;
+    padding-top:24px;
+    border-top:2px solid var(--ink);
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.04em;
+    color:var(--ink-faint);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  }
+
+  @media (max-width:640px){
+    .wrap{padding:0 16px 70px;}
+    body{font-size:14.5px;line-height:1.7;}
+    .masthead{padding:40px 0 28px;}
+    .masthead h1{font-size:27px;line-height:1.22;}
+    .masthead .sub{font-size:14px;}
+    .banner{margin:48px 0 22px;padding:15px 16px;}
+    .prod{margin:40px 0 14px;gap:12px;}
+    .prod h3{font-size:18px;}
+    .prod .num{min-width:30px;height:30px;font-size:13px;}
+    h4{font-size:15px;}
+    .claim{font-size:12.5px;padding:7px 11px;}
+    table{font-size:11.5px;}
+    th,td{padding:7px 9px;}
+    a{word-break:break-word;overflow-wrap:anywhere;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============== 지침 ============== -->
+  <section class="banner first">
+    <span class="k">Section 01</span>
+    <h2>지침</h2>
+  </section>
+
+  <h4>1. 공통 평가 지침</h4>
+  <ul>
+    <li>평가 등급은 프리미엄/상/중/하 4가지 척도로 평가합니다.</li>
+    <li>가능한 자료와 지식을 최대한 활용하여 Deep Thinking 방식으로 꼼꼼하게 검토합니다.</li>
+    <li>평가 기준은 한국에서 일반적으로 유통되는 동일 제품군 평균과의 비교입니다.</li>
+    <li>한국 규제 환경 내에서 사용 가능한 원료와 성분 중에서만 프리미엄 수준인지 판단합니다.</li>
+    <li>규제로 인해 사용할 수 없는 성분이나 제형, 허가 유형(ex. 건강기능식품 또는 일반식품) 때문에 점수를 낮추지 않습니다.</li>
+    <li>식품안전나라에 공개된 정보를 기준으로 판단 <a href="https://www.foodsafetykorea.go.kr/main.do">https://www.foodsafetykorea.go.kr/main.do</a></li>
+    <li>다음 행위는 금지합니다.
+      <ul>
+        <li>한국에서 수입 불가능하거나, 사용할 수 없는 원료와 비교하여 평가</li>
+        <li>규제로 인해 생긴 한계를 단점으로 평가</li>
+        <li>한국 온라인 쇼핑몰에 [수입][해외][직구]라고 써있는 제품과 비교 평가</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h4>2. 각 보틀별 핵심 품질 판단 기준은 '각 보틀 별 상세 내용.pdf'을 준수한다.</h4>
+
+  <h4>3. 평가 결과 작성 방식</h4>
+  <p>결과는 반드시 아래 표 형식으로만 작성한다.</p>
+  <div class="tscroll"><table class="mini">
+    <thead><tr><th>평가대상</th><th>등급</th><th>핵심요약</th></tr></thead>
+    <tbody>
+      <tr><td>알고케어 [제품명]</td><td>하/중/상/프리미엄 중 하나</td><td>원료사, 원료 형태, 표준화, 함량, 제형 설계, 안전 마진을 중심으로 간단히 요약</td></tr>
+    </tbody>
+  </table></div>
+  <p>다른 제품과 비교하는 경우에도 같은 형식으로 작성한다.</p>
+  <div class="tscroll"><table class="mini">
+    <thead><tr><th>평가대상</th><th>등급</th><th>핵심요약</th></tr></thead>
+    <tbody>
+      <tr><td>알고케어 [제품명]</td><td>하/중/상/프리미엄 중 하나</td><td>핵심요약</td></tr>
+      <tr><td>비교 제품명</td><td>하/중/상/프리미엄 중 하나</td><td>핵심요약</td></tr>
+    </tbody>
+  </table></div>
+  <ul><li>깔끔한 답변을 지향하며, 추가 설명, 장문 해설, 후속 질문 제안은 작성하지 않는다.</li></ul>
+
+  <!-- ============== 설계 철학 ============== -->
+  <section class="banner">
+    <span class="k">Section 02</span>
+    <h2>알고케어 뉴트리션 설계 철학 [14종 보틀 공통]</h2>
+  </section>
+
+  <p>알고케어 뉴트리션은 단순히 성분과 함량만을 고려하여, 설계하지 않으며, 개인 맞춤 영양 설계, 성분별 미니정제 구조, 기능성 원료 중심 배합, 제품별 코팅 기술, 제조 품질관리 체계, 유통기한 동안의 표시 함량 유지까지 함께 고려하여 설계합니다.</p>
+  <p>제품별 기능성 원료와 함량은 각 제품의 목적에 맞게 설계되며, 공통적으로 원료의 특성, 제형 안정성, 섭취 경험, 디스펜서 시스템과의 적합성을 함께 고려합니다.</p>
+
+  <h4>1. 미니정제 설계로, 개별화된 맞춤 최적화에 용이</h4>
+  <p>알고케어 뉴트리션은 개인별 영양 설계에 맞춰 여러 종류의 뉴트리션 보틀을 조합할 수 있도록, 각 제품을 미니정제 형태로 설계했습니다.</p>
+  <p>미니정제 구조는 개인별 건강 상태나 섭취 목적에 따라 필요한 성분을 늘리고, 줄이거나 제외하는 방식의 맞춤형 영양 설계에 적합합니다. 또한 여러 뉴트리션 보틀을 조합하는 알고케어 디스펜서 시스템과도 잘 맞는 제형 구조입니다.</p>
+  <p>미니정제 설계는 흡수율이나 효능이 더 높다는 의미가 아니라, 성분별 설계와 개인 맞춤 조합을 가능하게 하는 제형으로서의 의미가 큽니다.</p>
+
+  <h4>2. 저부형제 설계</h4>
+  <p>부형제는 정제를 제조하기 위해 필요한 원료입니다. 알고케어는 정제의 제조 안정성과 품질을 유지하는 범위 안에서 부형제 사용을 최소화하고, 기능성 원료 중심으로 제품을 설계하였습니다.</p>
+  <p>제품별 원료 특성, 정제 크기, 제조 공정, 안정성 조건에 따라 부형제 사용량은 달라질 수 있습니다. 따라서 알고케어 뉴트리션의 저부형제 설계는 부형제를 사용하지 않는다는 의미가 아니라, 제품 설계가 가능한 범위 안에서 기능성 원료 비중을 높이고 불필요한 부형제 사용을 줄이는 것을 지향합니다.</p>
+  <p>이 방식은 정제의 성형성, 붕해성, 보관 안정성 등 제조 품질을 함께 고려하면서, 기능성 원료 중심의 포뮬러를 구현하는 것에 적합합니다.</p>
+  <p>부형제 자체가 나쁘다는 의미는 아니며, 알고케어의 저부형제 설계는 기능성 원료 비중과 제조 안정성을 함께 고려한 품질 설계 개념입니다.</p>
+
+  <h4>2. 알고케어의 코팅 기술 및 적용 제품</h4>
+  <p>알고케어의 코팅 기술은 제품별 특성에 따라 적용 목적이 다릅니다. 코팅은 단순 외관 처리가 아니라, 원료 특성, 붕해 위치, 섭취 경험, 제형 안정성 등을 고려한 제품별 제형 설계 요소로 적용됩니다.</p>
+  <p>모든 코팅 기술이 흡수율 증가나 효과 강화를 의미하는 것은 아니며, 각 제품의 목적에 따라 장 환경 방출, 위산 영향 고려, 섭취 중 불편감 감소, 정제 붕해 특성 조절 등의 목적으로 사용됩니다.</p>
+
+  <h4>3-1. 프로바이오틱스 장용코팅</h4>
+  <p>알고케어 프로바이오틱스에는 장용코팅 기술이 적용되어 있습니다. 장용코팅은 위에서 바로 붕해되지 않고 장 환경에서 방출되도록 설계된 제형 기술입니다.</p>
+  <p>프로바이오틱스는 위산과 담즙 등 소화 환경의 영향을 받을 수 있기 때문에, 장용코팅은 위산 영향을 고려하여 장까지 도달할 수 있도록 설계한 제형 요소입니다.</p>
+
+  <h4>3-2. 오메가3 장용코팅</h4>
+  <p>알고케어 오메가3에는 장용코팅 기술이 적용되어 있습니다. 일반적인 오메가3 제품은 섭취 후 위에서 붕해되면서 비린 향이 올라오거나 트림 시 불편함을 느끼는 경우가 있습니다.</p>
+  <p>오메가3 장용코팅은 이러한 섭취 경험을 고려하여 위에서 바로 붕해되지 않고 장 환경에서 방출되어, 비린 향이나 트림으로 인한 불편감을 줄이는 방향으로 설계 되었습니다.</p>
+
+  <h4>3-3. 멀티미네랄비타민 탭쉴드 코팅</h4>
+  <p>알고케어 멀티미네랄비타민에는 코피텍의 탭쉴드(TabShield) 코팅 기술이 적용되어 있습니다.</p>
+  <p>탭쉴드는 단순한 외관 코팅이 아니라, 코팅 조성물과 공정 기술을 적용해 정제의 제품 특성과 붕해 특성을 고려한 코팅 시스템입니다.</p>
+  <p>멀티미네랄비타민은 다양한 비타민과 미네랄이 함께 포함되는 제품이므로, 정제의 안정성, 붕해 특성, 섭취 경험을 함께 고려한 제형 설계가 중요합니다. 이에 알고케어 멀티미네랄비타민은 제품 특성에 맞는 정제 품질과 섭취 경험을 고려해 탭쉴드 코팅을 적용했습니다.</p>
+
+  <h4>4. 제조 품질 및 제조사</h4>
+  <p>알고케어 제품은 서흥 그룹의 건강기능식품 전문 생산시설에서 제조됩니다. 제품 제형에 따라 서흥 또는 서흥헬스케어의 전담 생산시설에서 생산되며, 각 제형에 적합한 생산 환경과 품질관리 체계를 기반으로 제조됩니다.</p>
+  <p>서흥 그룹은 국내 건강기능식품 OEM·ODM 분야를 대표하는 제조사 중 하나로, 정제, 경질캡슐, 연질캡슐 등 다양한 제형의 생산 경험을 보유하고 있습니다. 알고케어는 제품별 제형 특성과 생산 적합성을 고려해 제조 시설을 적용합니다.</p>
+  <p>제조 과정은 건강기능식품 GMP를 비롯한 품질관리 체계를 기반으로 운영되며, 생산시설 및 제품 특성에 따라 HACCP, FSSC 22000, FDA 관련 품질 시스템, Halal, Kosher 등 다양한 품질·식품안전 관리 체계가 적용 됩니다.</p>
+
+  <h4>5. 유통기한 동안 표시함량 유지를 고려한 안전적용률 적용</h4>
+  <p>안전적용률은 기능성 성분이 제조, 보관 및 유통 과정에서 자연적으로 변화할 수 있는 점을 고려하여, 유통기한 동안 표시함량이 유지될 수 있도록 반영하는 품질 설계 기준입니다.</p>
+  <p>건강기능식품의 기능성 성분은 원료 특성, 제조 공정, 보관 환경, 유통기한에 따라 함량 변화가 발생할 수 있습니다. 알고케어는 이러한 변화를 고려해 성분별 안정성을 검토하고, 표시함량이 유통기한 동안 유지될 수 있도록 안전적용률을 제품 설계에 반영합니다.</p>
+  <div class="tscroll"><table class="mini">
+    <thead><tr><th>안전적용률</th><th>소비자 설명</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">90%</td><td>약 10% 감소 가능성을 고려한 설계</td></tr>
+      <tr><td class="mono">80%</td><td>약 20% 감소 가능성을 고려한 설계</td></tr>
+      <tr><td class="mono">70%</td><td>약 30% 감소 가능성을 고려한 설계</td></tr>
+      <tr><td class="mono">60%</td><td>약 40% 감소 가능성을 고려한 설계</td></tr>
+    </tbody>
+  </table></div>
+  <p>예를 들어 안전적용률 70%는 약 30% 수준의 감소 가능성을 고려하여 설계했다는 의미입니다. 이는 효능을 높이기 위해 성분을 더 많이 넣었다는 뜻이 아니라, 제조 및 유통 과정에서 발생할 수 있는 자연적인 함량 변화를 고려해 유통기한 동안 표시함량이 유지될 수 있도록 반영한 품질관리 개념입니다.</p>
+  <p>안전적용률은 효능을 높이기 위한 개념이 아니며, 고함량 또는 과량 투입을 의미하지 않습니다. 또한 안전적용률이 높을수록 더 좋은 제품이거나, 안전적용률이 낮을수록 품질이 낮은 제품이라는 의미도 아닙니다. 성분마다 안정성이 다르기 때문에, 제품별 원료 특성에 따라 적절한 수준의 안전적용률이 설정됩니다.</p>
+  <p>알고케어는 단순히 제조 시점의 함량만 맞추는 것이 아니라, 유통기한 동안 표시함량이 유지될 수 있도록 성분별 안전적용률을 설계에 반영했습니다. 제조·보관·유통 과정에서 각 성분은 안정성에 따라 함량 변화가 발생할 수 있기 때문에, 알고케어는 각 성분의 특성과 예상되는 함량 변화를 고려해 제품별 안전적용률을 설정했습니다. 이러한 설계는 고함량이나 효능 강화를 위한 설계가 아니라, 소비자가 섭취하는 시점까지 표시 기준을 안정적으로 유지하기 위한 품질관리 중심의 설계입니다.</p>
+
+  <!-- ============== 14종 상세 ============== -->
+  <section class="banner">
+    <span class="k">Section 03</span>
+    <h2>알고케어 뉴트리션 14종 보틀 상세</h2>
+  </section>
+
+  <!-- 1 멀티비타민미네랄 -->
+  <div class="prod"><span class="num">01</span><h3>알고케어 뉴트리션 멀티비타민미네랄</h3></div>
+  <span class="tag">건강기능식품 _ [영양소] 제품</span>
+  <ul>
+    <li>13종 멀티비타민과 8종의 미네랄이 포함된, 데일리 필수 영양제</li>
+    <li>글로벌 비타민 원료 기업 DSM의 프리미엄 원료를 핵심비타민에 집중 배치</li>
+    <li>DSM 원료 10종: 비타민 A, B군, C, D, E, K1
+      <ul><li>DSM사 비타민 원료 품질은 해당 링크 참고: <a href="https://www.dsm-firmenich.com/en/businesses/health-nutrition-care/products/vitamins.html">Vitamins | dsm-firmenich Health, Nutrition &amp; Care</a></li></ul>
+    </li>
+    <li>프리미엄 비타민K2 사용: 이탈리아 Gnosis S.P.A MenaQ7® 비타민K2
+      <ul>
+        <li>자연 발효 공정을 통해 미생물을 활용하여, 순수하고 생체 이용률이 높은 MK-7 형태의 비타민 K2를 만드는 이탈리아 MenaQ7® 사용
+          <ul>
+            <li>MenaQ7® 원료 관련 참고 논문
+              <ul>
+                <li>MenaQ7® 원료 품질은 해당 링크 내용 참고: <a href="https://gnosisbylesaffre.com/brand/menaq7/">MenaQ7® Vitamin K2 as MK-7</a></li>
+                <li>골밀도, 골강도에 도움 논문 : <a href="https://pubmed.ncbi.nlm.nih.gov/23525894/">NCBI - WWW Error Blocked Diagnostic</a></li>
+                <li>MenaQ7® 건강한 폐경 후 여성에서 장기 MK-7 보충이 동맥 혈관 경직도 개선에 도움 논문 : <a href="https://pubmed.ncbi.nlm.nih.gov/25694037/">NCBI - WWW Error Blocked Diagnostic</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>핵심 미네랄인 아연, 망간, 구리에 미국 Jost Chemical의 고순도 미네랄
+      <ul><li>엄격한 품질 기준으로 관리되는 Jost Chemical의 미네랄 원료를 사용
+        <ul><li>Jost Chemical 원료사 퀄리티: <a href="https://www.jostchemical.com/who-we-are/">About Jost Chemical - High Purity Specialty Chemicals</a></li></ul>
+      </li></ul>
+    </li>
+    <li>중성비타민C 사용
+      <ul>
+        <li>보통의 종합 멀티 미네랄 비타민에 들어가는 아스코르빈산 형태가 아니라 L-아스코브산칼슘 형태의 중성 비타민C를 사용하여, 매일 섭취하는 멀티비타민에서 위장관 부담까지 고려한 설계</li>
+        <li>아스코르브산으로 유발된 위의 높은 산도가 칼슘 아스코르베이트에 의해 완화될 가능성을 제시한 논문: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5746510/">Alleviation of ascorbic acid-induced gastric high acidity by calcium ascorbate in vitro and in vivo</a></li>
+      </ul>
+    </li>
+    <li>시중 멀티미네랄비타민 대비 1알당 함량이 적어, 개별화된 맞춤 조절이 용이 (1알당 함량은 아래 표 참고)</li>
+    <li>수용성 비타민에 비해, 체내 축적이 용이한 지용성 비타민 E, K, A는 식이 섭취량을 고려하여 1일 영양성분 기준치 기준 40%로 설계하여 안전성을 높임.
+      <ul><li>지용성 비타민 중, 비타민D
+        <ul>
+          <li>타 영양제에 함께 배합되어 있는 경우가 많은 점을 고려하여 멀티미네랄비타민에서는 60%로 설계</li>
+          <li>생애주기나, 생활패턴상 추가 보충이 필요한 유저들을 위해 멀티미네랄비타민과 독립된 비타민D보틀을 라인업에 구비</li>
+        </ul>
+      </li></ul>
+    </li>
+    <li>미량미네랄원소인 크롬, 몰리브덴, 망간, 구리, 셀렌, 요오드의 경우, 한국인의 식습관상 식이로 상당 부분 충족되는 점을 고려하여 1일 영양성분 기준치 60-80% 수준으로 과하지 않게 설계</li>
+  </ul>
+  <span class="price">1일 섭취량 기준 한달분 가격 : 약 18,400원 / 1개월</span>
+  <ul>
+    <li>멀티미네랄비타민 품질 판단기준 : 다음 사항 중 여러개를 만족 하면 프리미엄
+      <ul>
+        <li>글로벌 상위권 원료사(예: DSM, BASF, Gnosis, K2 브랜드사 등)의 원료 비중이 높다.</li>
+        <li>원료 출처와 제조사가 구체적으로 공개되어 있고, 추적 가능성이 높다.</li>
+        <li>시장 평균보다 한 단계 높은 원료 형태(예: 브랜드 원료, 특허 원료, 안정성/흡수율/품질 관리 측면에서 우수한 형태)가 포함된다.</li>
+        <li>한국 종합비타민 시장에서 흔하지 않은 프리미엄 포인트(예: MenaQ7 같은 브랜드 원료, 중성비타민c 사용, 세분화된 배합 설계, 소형 정제, 섭취량 조절 구조)가 있다.</li>
+        <li>저가형 제품에서 흔한 무명 원료사 위주 구성이 아니라, 신뢰도 높은 원료사 중심 구성이다. 전체 포뮬러가 평균적으로 원료사 체급과 설계 완성도가 시장 평균을 뚜렷하게 상회한다.</li>
+      </ul>
+    </li>
+    <li>알고케어 뉴트리션 멀티미네랄비타민 주원료 및 부원료 정보</li>
+  </ul>
+  <div class="tscroll"><table class="num-table">
+    <thead><tr>
+      <th>주원료 (73.79 %)<br>ㄴ 부원료 (26.21 %)</th><th>기능성 명칭</th><th>원료명</th><th>제조사</th><th>제조국(원산지)</th><th>1알당 함량</th><th>1일 섭취량 당 함량<br>120 mg/정 * 6정</th><th>1일 최대섭취량 당 함량<br>120 mg/정 * 15정</th><th>1일 영양성분 기준치 (%)</th><th>% 기준치</th><th>안전적용률</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>주원료</td><td>중성 비타민C</td><td>L-아스코브산칼슘 (비타민C 82%)</td><td>DSM NUTRITIONAL PRODUCTS GMBH</td><td>미국</td><td>33.3mg</td><td>200 mg</td><td>500mg</td><td>100 mg</td><td>200 %</td><td>84.91%</td></tr>
+      <tr><td>주원료</td><td>판토텐산</td><td>판토텐산칼슘 (판토텐산 92%)</td><td>DSM NUTRITIONAL PRODUCTS GMBH</td><td>영국</td><td>3.33 mg</td><td>20 mg</td><td>50mg</td><td>5 mg</td><td>400 %</td><td>70.06%</td></tr>
+      <tr><td>주원료</td><td>나이아신</td><td>니코틴산아미드 (나이아신 99%)</td><td>JUBILANT INGREVIA LIMITED</td><td>인도</td><td>3.75 mg NE</td><td>22.5 mg NE</td><td>56.3mg NE</td><td>15 mg NE</td><td>150 %</td><td>74.98%</td></tr>
+      <tr><td>주원료</td><td>비타민E</td><td>비타민E혼합제제 (비타민E 22.7%)</td><td>DSM NUTRITIONAL PRODUCTS GMBH</td><td>프랑스</td><td>0.73 mg a-TE</td><td>4.4 mg α-TE</td><td>11.0mg a-TE</td><td>11 mg α-TE</td><td>40 %</td><td>74.79%</td></tr>
+      <tr><td>주원료</td><td>철</td><td>푸마르산제일철 (철 33%)</td><td>NOVOTECH NUTRACEUTICALS, INC.</td><td>미국</td><td>1.00 mg</td><td>6 mg</td><td>15.0mg</td><td>12 mg</td><td>50 %</td><td>75.01%</td></tr>
+      <tr><td>주원료</td><td>비타민B1</td><td>비타민B1질산염 (비타민B1 81%)</td><td>DSM NUTRITIONAL PRODUCTS GMBH</td><td>독일</td><td>2.00 mg</td><td>12 mg</td><td>30.0mg</td><td>1.2 mg</td><td>1000 %</td><td>69.99%</td></tr>
+      <tr><td>주원료</td><td>크롬</td><td>건조효모 (크롬 0.2%)</td><td>SALUTAGUSE PARMITEHAS AS</td><td>에스토니아</td><td>4.00 μg</td><td>24 μg</td><td>60.0μg</td><td>30 μg</td><td>80 %</td><td>90.05%</td></tr>
+      <tr><td>주원료</td><td>아연</td><td></td><td></td><td></td><td>1.42 mg</td><td>8.5 mg (7 mg + 1.5mg)</td><td>21.3mg</td><td>8.5 mg</td><td>100 %</td><td>84.69%</td></tr>
+      <tr class="sub-row"><td>ㄴ 세부 주원료 .1</td><td>ㄴ 산화아연</td><td>산화아연 (아연 80%)</td><td>EVERZINC NEDERLAND B.V.</td><td>네덜란드</td><td></td><td>ㄴ 7 mg</td><td></td><td>8.5 mg</td><td>ㄴ 82.4 %</td><td></td></tr>
+      <tr class="sub-row"><td>ㄴ세부 주원료 .2</td><td>ㄴ 글루콘산아연</td><td>글루콘산아연(아연 14%)</td><td>JOST CHEMICAL CO</td><td>미국</td><td></td><td>ㄴ 1.5 mg</td><td></td><td>8.5 mg</td><td>ㄴ 17.6 %</td><td></td></tr>
+      <tr><td>주원료</td><td>몰리브덴</td><td>건조효모 (몰리브덴 0.2%)</td><td>SALUTAGUSE PARMITEHAS AS</td><td>에스토니아</td><td>3.33 μg</td><td>20 μg</td><td>50.0μg</td><td>25 μg</td><td>80 %</td><td>90.02%</td></tr>
+      <tr><td>주원료</td><td>망간</td><td>황산망간 (망간 36%)</td><td>JOST CHEMICAL CO</td><td>미국</td><td>0.40 mg</td><td>2.4 mg</td><td>6.0mg</td><td>3 mg</td><td>80 %</td><td>70.04%</td></tr>
+      <tr><td>주원료</td><td>비오틴</td><td>비오틴혼합제제 (비오틴 1%)</td><td>빅솔</td><td>국내제조(프랑스)</td><td>7.50 μg</td><td>45 μg</td><td>112.5μg</td><td>30 μg</td><td>150 %</td><td>60.04%</td></tr>
+      <tr><td>주원료</td><td>비타민B2</td><td>비타민B2 (Riboflavin)</td><td>DSM NUTRITIONAL PRODUCTS GMBH</td><td>독일</td><td>0.70 mg</td><td>4.2 mg</td><td>10.5mg</td><td>1.4 mg</td><td>300 %</td><td>60.02%</td></tr>
+      <tr><td>주원료</td><td>구리</td><td>글루콘산동 (구리 14%)</td><td>JOST CHEMICAL CO</td><td>미국</td><td>0.107 mg</td><td>0.64 mg</td><td>1.6mg</td><td>0.8 mg</td><td>80 %</td><td>70.01%</td></tr>
+      <tr><td>주원료</td><td>셀렌</td><td>아셀렌산나트륨혼합제제 (셀렌 1%)</td><td>Nutrisol LLC</td><td>미국</td><td>7.33 μg</td><td>44 μg</td><td>110.0μg</td><td>55 μg</td><td>80 %</td><td>90.01%</td></tr>
+      <tr><td>주원료</td><td>비타민D3</td><td>비타민D3혼합제제 (비타민D 0.25%)</td><td>DSM NUTRITIONAL PRODUCTS AG, BRANCH SITESISSELN</td><td>스위스</td><td>2 μg (80.00 IU)</td><td>6 μg (240IU)</td><td>10 μg (600.0IU)</td><td>10 μg</td><td>60 %</td><td>60.07%</td></tr>
+      <tr><td>주원료</td><td>비타민B12</td><td>비타민B12혼합분말 (비타민B12 1%)</td><td>빅솔</td><td>국내제조(프랑스)</td><td>4.00 μg</td><td>24 μg</td><td>60.0μg</td><td>2.4 μg</td><td>1000 %</td><td>60.07%</td></tr>
+      <tr><td>주원료</td><td>비타민A</td><td>비타민A혼합제제 (비타민A 10.5%)</td><td>DSM NUTRITIONAL PRODUCTS AG, BRANCH SITESISSELN</td><td>스위스</td><td>46.67 μg RE</td><td>280 μg RAE</td><td>700.0μg RE</td><td>700 μg RAE</td><td>40 %</td><td>67.10%</td></tr>
+      <tr><td>주원료</td><td>비타민B6</td><td>비타민B6염산염 (비타민B6 82%)</td><td>DSM NUTRITIONAL PRODUCTS GMBH</td><td>독일</td><td>0.38 mg</td><td>2.25 mg</td><td>5.6mg</td><td>1.5 mg</td><td>150 %</td><td>70.06%</td></tr>
+      <tr><td>주원료</td><td>비타민K (K1 + K2)</td><td></td><td></td><td></td><td>4.67 μg</td><td>28 μg (14 μg+ 14μg)</td><td>70.1μg</td><td>70 μg</td><td>40 %</td><td>60.03%</td></tr>
+      <tr class="sub-row"><td>ㄴ 세부 주원료. 1</td><td>ㄴ 비타민K1</td><td>비타민K1혼합제제 (비타민K 5%)</td><td>DSM NUTRITIONAL PRODUCTS LTD</td><td>스위스</td><td>2.33 μg</td><td>ㄴ 14 μg</td><td>35.0μg</td><td></td><td></td><td></td></tr>
+      <tr class="sub-row"><td>ㄴ 세부 주원료. 2</td><td>ㄴ 비타민K2(Mena Q7)</td><td>바실러스나토균농축분말 MenaQ7 (비타민K2 0.2%이상)</td><td>GNOSIS S.P.A</td><td>이탈리아</td><td>2.34 μg</td><td>ㄴ 14 μg</td><td>35.1μg</td><td></td><td></td><td></td></tr>
+      <tr><td>주원료</td><td>엽산</td><td>엽산</td><td>DSM NUTRITIONAL PRODUCTS AG, BRANCH SITESISSELN</td><td>스위스</td><td>66.67 μg DFE</td><td>400 μg</td><td>1000.0μg DFE</td><td>400 μg</td><td>100 %</td><td>67.11%</td></tr>
+      <tr><td>주원료</td><td>요오드</td><td>요오드칼륨 (요오드 76%)</td><td>IodiTech INC.</td><td>미국</td><td>15.00 μg</td><td>90 μg</td><td>225.0μg</td><td>150 μg</td><td>60 %</td><td>69.99</td></tr>
+    </tbody>
+  </table></div>
+
+  <!-- 2 오메가3 -->
+  <div class="prod"><span class="num">02</span><h3>알고케어 뉴트리션 장용성 초임계 rTG 오메가3</h3></div>
+  <span class="tag">건강기능식품 _ [고시형] 제품</span>
+  <span class="claim">1. 혈중 중성지질 개선･혈행 개선에 도움을 줄 수 있음.</span>
+  <span class="claim">2. 기억력 개선에 도움을 줄 수 있음.</span>
+  <span class="claim">3. 건조한 눈을 개선하여 눈 건강에 도움을 줄 수 있음.</span>
+  <ul>
+    <li>세계 프리미엄 오메가3 원료사 Polaris [프랑스] 순도 80% 사용
+      <ul>
+        <li>Polaris 오메가3는 GOED 인증, 산패/중금속 관리 우월</li>
+        <li>고순도 원료 사용으로 불필요한 기름 섭취 감소</li>
+        <li>Polaris 사의 원료 인증 정보 링크: <a href="https://www.polaris.fr/en/polaris/sustainable-commitment/certifications/">Certifications - Polaris</a></li>
+      </ul>
+    </li>
+    <li>위산에는 녹지 않고 장(pH 6.8 이상)에서만 안전하게 녹는 장용성 코팅(서흥 특허)이 된 캡슐 오메가3로, 오메가3특유의 비린내·트림·섭취 부담을 줄이도록 고려한 제형</li>
+    <li>작은 알로 설계되어, 목넘김이 편함.</li>
+    <li>rTG폼으로 EE폼 대비 오메가3 생체이용율 개선</li>
+    <li>1알당 EPA 180mg, DHA 300mg 로 생애주기에 따른 요구량 변화, 섭취 목적성에 따라 유연하게 대처 가능한 장점</li>
+  </ul>
+  <span class="price">1일 섭취량 기준 한달분 가격 : 약 29,636원 / 1개월</span>
+  <ul>
+    <li>오메가3 품질 판단기준 : 다음 사항 중 여러개를 만족 하면 프리미엄
+      <ul>
+        <li>세계 프리미엄 원료사 사용 여부</li>
+        <li>어취/비린내 역함을 감춘 장용성 코팅 여부</li>
+        <li>흡수율 개선이 된 rTG폼 인지 여부</li>
+        <li>80% 이상의 고순도 제품인지 여부</li>
+      </ul>
+    </li>
+    <li>알고케어 뉴트리션 장용성 초임계 rTG 오메가3 주원료 및 부원료 정보</li>
+  </ul>
+  <div class="tscroll"><table class="num-table">
+    <thead><tr>
+      <th>주원료 (99.47%)<br>ㄴ 부원료 (0.53%)</th><th>기능성 명칭</th><th>원료명</th><th>제조사</th><th>제조국(원산지)</th><th>1알당 함량</th><th>1일 섭취량 당 함량<br>377 mg/캡슐 * 3켑술</th><th>1일 최대섭취량 당 함량<br>377 mg/캡슐 * 6켑술</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>주원료</td><td>EPA 및 DHA 함유 유지</td><td>정제어유(rTG) 오메가3</td><td>POLARIS NUTRITIONAL LIPIDS SA</td><td>프랑스</td><td>300.00 mg</td><td>900.0mg</td><td>1800.0mg</td></tr>
+      <tr class="sub-row"><td>ㄴ 세부 주원료. 1</td><td>EPA</td><td>정제어유(rTG) 오메가3</td><td>POLARIS NUTRITIONAL LIPIDS SA</td><td>프랑스</td><td>180.00 mg</td><td>540.0mg</td><td>1080.0mg</td></tr>
+      <tr class="sub-row"><td>ㄴ 세부 주원료. 2</td><td>DHA</td><td>정제어유(rTG) 오메가3</td><td>POLARIS NUTRITIONAL LIPIDS SA</td><td>프랑스</td><td>120.00 mg</td><td>360.0mg</td><td>720.0mg</td></tr>
+    </tbody>
+  </table></div>
+
+  <!-- 3 비타민D3 -->
+  <div class="prod"><span class="num">03</span><h3>알고케어 뉴트리션 비타민D3</h3></div>
+  <span class="tag">건강기능식품 _ [영양소] 제품</span>
+  <span class="claim">1. 칼슘과 인이 흡수되고 이용되는데 필요</span>
+  <span class="claim">2. 뼈의 형성과 유지에 필요</span>
+  <span class="claim">3. 골다공증발생 위험 감소에 도움을 줌.</span>
+  <ul>
+    <li>스위스 DSM사 Quali®-D 비타민D3 원료 사용 <a href="https://www.dsm-firmenich.com/en/businesses/taste-texture-health/markets-products/bakery-bars-confectionery/bars-cereals/quali-vitamins.html">Quali® vitamins | dsm-firmenich Taste, Texture &amp; Health</a></li>
+    <li>미니 정제 1정당 1000IU 설계로, 1000 IU로 고정된 저함량 제품이 아니라, 개인의 혈중 비타민D 상태, 햇빛 노출, 식습관, 연령, 계절에 따라 1000–4000 IU 범위로 섭취량을 조절하기 쉬운 단위 용량 (4000IU 초과는 식약처에서 정한 1일권장량 상한을 넘어가므로, 전문가와 상담 필요)</li>
+  </ul>
+  <span class="price">1일 섭취량 기준 한달분 가격 : 약 4,560원 / 1개월</span>
+  <ul>
+    <li>비타민D 품질 판단기준 : 다음 사항 중 여러개를 만족 하면 프리미엄
+      <ul>
+        <li>원료 수준: 글로벌 브랜드 원료 사용시 프리미엄</li>
+        <li>원료 제조사 수준: 세계적 원료사이며 GMP, ISO, FSSC22000 등 품질 시스템 신뢰성이 높으면: 프리미엄</li>
+        <li>소비자 체감 제형 완성도: 초소형 정제, 복용 편의성, 섭취량 조절 유연성 등 소비자가 명확히 체감 가능한 장점이 2개 이상이면 프리미엄</li>
+      </ul>
+    </li>
+    <li>알고케어 뉴트리션 비타민D3 주원료 및 부원료 정보</li>
+  </ul>
+  <div class="tscroll"><table class="num-table">
+    <thead><tr>
+      <th>주원료 (17.5%)<br>ㄴ 부원료 (82.5%)</th><th>기능성 명칭</th><th>원료명</th><th>제조사</th><th>제조국(원산지)</th><th>1알당 함량</th><th>1일 섭취량 당 함량<br>95 mg/정 * 1정</th><th>1일 최대섭취량 당 함량<br>95 mg/정 * 5정</th><th>1일 영양성분 기준치 (%)</th><th>% 기준치</th><th>안전적용률</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>주원료</td><td>비타민D3</td><td>비타민D3혼합제제</td><td>DSM</td><td>스위스</td><td>25 μg (1000IU)</td><td>25 μg (1000IU)</td><td>125 μg (5000IU)</td><td>10 μg (400IU)</td><td>250 %</td><td>60.15%</td></tr>
+    </tbody>
+  </table></div>
+
+  <!-- 4 프로바이오틱스 -->
+  <div class="prod"><span class="num">04</span><h3>알고케어 뉴트리션 프로바이오틱스</h3></div>
+  <span class="tag">건강기능식품 _ [고시형] 제품</span>
+  <span class="claim">1. 유산균 증식 및 유해균 억제에 도움을 줄 수 있음</span>
+  <span class="claim">2. 배변활동 원활에 도움을 줄 수 있음</span>
+  <span class="claim">3. 장건강에 도움을 줄 수 있음.</span>
+  <ul>
+    <li>일동바이오사이언스의 특허받은 국내산 프리미엄 유산균 5종 사용
+      <ul>
+        <li>락티카제이바실러스 람노서스 IDCC 3201
+          <ul>
+            <li>IDCC 3201 변비형 과민성장증후군 IBS-C 대상 8주 무작위·이중눈가림·위약대조 연구에서 증상 및 장내 유익균 관련 지표 개선 가능성에 관한 논문 <a href="https://pubmed.ncbi.nlm.nih.gov/39333245/">NCBI - WWW Error Blocked Diagnostic</a></li>
+            <li>IDCC 3201이 세포시험에서 병원성 미생물에 대한 억제 활성을 보여, 항염, 항병원성 가능성을 보인 논문 <a href="https://pubmed.ncbi.nlm.nih.gov/36397614/">NCBI - WWW Error Blocked Diagnostic</a></li>
+          </ul>
+        </li>
+        <li>비피도박테리움 락티스 IDCC 4301
+          <ul>
+            <li>IDCC 4301 비만 여성 대상 무작위 임상시험에서 체지방, 혈중 중성지방, adipokine ratio 등 대사 관련 지표 개선 가능성에 관한 논문 <a href="https://pubmed.ncbi.nlm.nih.gov/39051504/">NCBI - WWW Error Blocked Diagnostic</a></li>
+            <li>IDCC 4301의 EFSA 기반 안정성 평가에서, 주요 독성 우려 확인 되지 않았고, 유전체 분석상 독성·전이성 내성 우려가 낮고, 다양한 병원성 미생물 억제 활성이 보고된 논문: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10084967/">Potential of Bifidobacterium lactis IDCC 4301 isolated from breast milk‐fed infant feces as a probiotic and functional ingredient</a></li>
+          </ul>
+        </li>
+        <li>락토바실러스 아시도필러스 IDCC 3302
+          <ul>
+            <li>IDCC 3302 안전성 평가 논문 <a href="https://www.mbl.or.kr/journal/view.html?doi=10.48022%2Fmbl.2011.11004">The in vitro and in vivo Safety Evaluation of Lactobacillus acidophilus IDCC 3302</a></li>
+            <li>IDCC 3302 사균체에 대해, UVB 유도 피부세포 광손상 모델에서 MMP 발현, MAPK 활성화, 염증 반응 변화를 관찰한 피부 광손상 억제 보고 연구 <a href="https://pubmed.ncbi.nlm.nih.gov/31017257/">NCBI - WWW Error Blocked Diagnostic</a></li>
+          </ul>
+        </li>
+        <li>스트렙토코커스 써모필러스 IDCC 2201
+          <ul>
+            <li>IDCC 2201 안전성 평가 논문 <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7684611/">Safety assessment of Streptococcus thermophilus IDCC 2201 used for product manufacturing in Korea</a></li>
+            <li>IDCC 2201의 퓨린 뉴클레오사이드 분해능과 동물모델에서의 혈중 요산 감소 연구 <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10883578/">Evaluation of purine-nucleoside degrading ability and in vivo uric acid lowering of Streptococcus thermophilus IDCC 2201, a novel antiuricemia strain</a></li>
+            <li>IDCC 2201의 상업용 프로바이오틱스 균주 16종 비교 연구에서 주요 엽산 생성 균주로 확인되었으며, folate 기반 장내미생물 cross-feeding을 통해 장내 환경에 유리한 변화를 줄 가능성을 제시한 연구 <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12149402/">Folate Production by Streptococcus thermophilus IDCC 2201 and Its Impact on Human Gut Microbiota</a></li>
+          </ul>
+        </li>
+        <li>비피도박테리움 롱검 IDCC 4101
+          <ul>
+            <li>IDCC 4101이 주요 안전성 우려가 확인되지 않아, 프로바이오틱스 원료로서의 안전성을 뒷받침하는 연구 <a href="https://e-fsbh.org/DOIx.php?id=10.52361%2Ffsbh.2021.1.e37">Genomic and Toxicity Studies on Bifidobacterium bifidum IDCC 4201 and Bifidobacterium longum IDCC 4101 Isolated from Feces of Breast-Fed Infants</a></li>
+            <li>4중 코팅 IDCC 4101을 포함한 복합 프로바이오틱스에서 IBS 환자 대상 무작위·이중눈가림·위약대조 연구에서 전체 IBS 증상 완화가 위약군보다 유의하게 높았고, qPCR 분석에서 Lactobacillus acidophilus, Bifidobacterium longum 등 주요 균주 수준 증가가 관찰되어, 코팅 기술과 복합 균주 설계의 장 건강 관련 가능성을 뒷받침하는 연구 <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10774795/">Efficacy of Quadruple-coated Probiotics in Patients With Irritable Bowel Syndrome: A Randomized, Double-blind, Placebo-controlled, Parallel-group Study</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>작은 경질 캡슐 사용으로, 목넘김이 편하고 1캡슐 당 500억 균수를 투입해 보장균수 100억</li>
+    <li>캡슐이 작아, 개별화된 맞춤 복용에 용이</li>
+    <li>특허 받은 4중 코팅 Q-Shield 공법으로, 유산균으로 장 부착력과 생존력 증진
+      <ul>
+        <li><a href="https://www.ildongbioscience.com/kor/company/PR_005.id">www.ildongbioscience.com</a></li>
+        <li><a href="https://www.ildongbioscience.com/kor/product/list.id">www.ildongbioscience.com</a></li>
+      </ul>
+    </li>
+    <li>위산에는 붕해되지 않고 장(pH 6.8 이상)에서만 안전하게 녹는 장용성 코팅(서흥 특허)이 된 캡슐 사용으로, 4중 코팅과 함께 위산에도 살아남는 강력한 유산균 설계</li>
+    <li>글로벌 인증인 FDA GRAS, Health Canada, Halal-certified, Kosher-certified 보유한 원료 사용</li>
+    <li>쌀가루, 효모추출물, 트레할로스를 배합하여, 유산균의 균일한 충전, 배양·생산 안정성, 동결건조 및 보관 중 균체 보호를 고려한 부원료 조합으로, 프리바이오틱스의 부재를 보완함.
+      <ul>
+        <li>프리바이오틱스는 장내 유익균의 먹이가 될 수 있는 장점이 있지만, 유효량을 충분히 넣기 위해서는 일반적으로 부피가 커져 캡슐 크기와 섭취 부담이 증가 가능성이 큼</li>
+        <li>알고케어 프로바이오틱스는 프리바이오틱스를 과도하게 넣어 캡슐 크기를 키우기보다, 균주 자체의 품질과 보장균수 안정성에 집중함.</li>
+        <li>특히 트레할로스는 유산균 보관 안정성과 동결건조 과정에서의 균체 보호를 고려한 프로바이오틱스의 안정화에 기여하는 원료</li>
+      </ul>
+    </li>
+  </ul>
+  <span class="price">1일 섭취량 기준 한달분 가격 : 약 19,030원 / 1개월</span>
+  <ul>
+    <li>프로바이오틱스 품질 판단기준 : 다음 사항 중 여러개를 만족 하면 프리미엄
+      <ul>
+        <li>자체 개발 균주 보유</li>
+        <li>상위 제조사 원료 사용</li>
+        <li>생존율 개선 기술 적용 (코팅 등)</li>
+        <li>원료 품질 및 안정성 확보</li>
+      </ul>
+    </li>
+    <li>알고케어 뉴트리션 프로바이오틱스 주원료 및 부원료 정보</li>
+  </ul>
+  <div class="tscroll"><table class="num-table">
+    <thead><tr>
+      <th>주원료 (75 %)<br>ㄴ 부원료 (25%)</th><th>기능성 명칭</th><th>원료명</th><th>제조사</th><th>제조국(원산지)</th><th>1알당 함량</th><th>1일 섭취량 당 프로바이오틱스 균수(표시)<br>200mg/캡슐*1캡슐</th><th>1일 최대섭취량 프로바이오틱스 균수(표시)<br>200mg/캡슐*3캡슐</th><th>1일 섭취량 당 프로바이오틱스 균수<br>(투입)_배합비상_%</th>
+    </tr></thead>
+    <tbody>
+      <tr><td><strong>주원료</strong></td><td><strong>프로바이오틱스</strong></td><td><strong>5종 혼합유산균</strong></td><td><strong>일동바이오사이언스</strong></td><td><strong>국내제조</strong></td><td><strong>100 억 CFU /200 mg</strong></td><td><strong>100 억 CFU</strong></td><td><strong>300 억 CFU</strong></td><td><strong>495 억 CFU / 200 mg (75%)</strong></td></tr>
+      <tr class="sub-row"><td>ㄴ 세부 주원료 .1</td><td>락티카제이바실러스 람노서스</td><td>락티카제이바실러스 람노서스 아이디씨씨(IDCC) 3201 알(R)-6000</td><td>일동바이오사이언스</td><td>국내제조</td><td></td><td></td><td></td><td>ㄴ 267.3 억 CFU/200 mg (40.5 %)</td></tr>
+      <tr class="sub-row"><td>ㄴ 세부 주원료 .2</td><td>비피도박테리움 락티스</td><td>비피도박테리움 락티스 아이디씨씨(IDCC) 4301 알(R)-5000</td><td>일동바이오사이언스</td><td>국내제조</td><td></td><td></td><td></td><td>ㄴ 198 억 CFU/200 mg (30 %)</td></tr>
+      <tr class="sub-row"><td>ㄴ 세부 주원료 .3</td><td>락토바실러스 아시도필러스</td><td>락토바실러스 아시도필러스 아이디씨씨(IDCC) 3302 알(R)</td><td>일동바이오사이언스</td><td>국내제조</td><td></td><td></td><td></td><td>ㄴ 9.9 억 CFU/200 mg (1.5 %)</td></tr>
+      <tr class="sub-row"><td>ㄴ 세부 주원료 .4</td><td>스트렙토코커스 써모필러스</td><td>스트렙토코커스 써모필러스 아이디씨씨(IDCC) 2201 알(R)</td><td>일동바이오사이언스</td><td>국내제조</td><td></td><td></td><td></td><td>ㄴ 9.9 억 CFU/200 mg (1.5 %)</td></tr>
+      <tr class="sub-row"><td>ㄴ 세부 주원료 .5</td><td>비피도박테리움 롱검</td><td>비피도박테리움 롱검 아이디씨씨(IDCC) 4101 알(R)</td><td>일동바이오사이언스</td><td>국내제조</td><td></td><td></td><td></td><td>ㄴ 9.9 억 CFU/200 mg (1.5%)</td></tr>
+      <tr><td>부원료</td><td></td><td>쌀가루</td><td>일동바이오사이언스</td><td>국내제조</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>부원료</td><td></td><td>효모추출물</td><td>일동바이오사이언스</td><td>국내제조</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>부원료</td><td></td><td>트레할로스</td><td>일동바이오사이언스</td><td>국내제조</td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table></div>
+
+  <!-- 5 칼슘마그네슘 -->
+  <div class="prod"><span class="num">05</span><h3>알고케어 뉴트리션 칼슘&amp;마그네슘</h3></div>
+  <span class="tag">건강기능식품 _ [영양소] 제품</span>
+  <span class="claim">칼슘 1. 뼈와 치아 형성에 필요</span>
+  <span class="claim">칼슘 2. 신경과 근육 기능 유지에 필요</span>
+  <span class="claim">칼슘 3. 정상적인 혈액응고에 필요</span>
+  <span class="claim">칼슘 4. 골다공증발생 위험 감소에 도움을 줌</span>
+  <span class="claim">마그네슘 1. 에너지 이용에 필요</span>
+  <span class="claim">마그네슘 2. 신경과 근육 기능 유지에 필요</span>
+  <ul>
+    <li>Microferm사의 해조 유래 칼슘 AQUAMIN F 및 독일 CALMAGS GMBH사의 고순도 산화마그네슘을 사용하여, 1일 권장량 기준 칼슘 300mg, 마그네슘 150mg로 균형 잡힌 2:1 비율 설계
+      <ul>
+        <li>AQUAMIN F
+          <ul>
+            <li>Lithothamnion 해조 유래 해양 미네랄 원료로, 칼슘을 중심으로, 소량의 마그네슘과 해양 미량 미네랄을 함께 함유하는 원료로 천연 배합 포뮬라</li>
+            <li>인증 정보 : Kosher certified/Halal certified/EU health certified/Allergen free/Free of Animal derived Material/Self-affirmed GRAS status/GMO free/FSSC 22000 (including ISO 22000, ISO22002-1) <a href="https://aquamin.com/products/marine-minerals-aquamin-f/">Aquamin F | Marine Multimineral Complex from Aquamin</a></li>
+          </ul>
+        </li>
+        <li>CALMAGS GMBH사: 독일 미네랄 원료사로, ISO 9001:2015, GDP, IFS, AEO, EcoVadis Bronze Medal 등 회사 차원의 인증 보유 <a href="https://www.calmags.com/en/home.html">Home</a></li>
+      </ul>
+    </li>
+    <li>칼슘과 마그네슘은 체내에서 상호 보완적으로 작용하는 대표적인 미네랄로, 두 영양소를 균형 있게 섭취할 수 있도록 배합</li>
+    <li>해조 유래 칼슘을 사용하여 칼슘 외에도 자연 유래 미량 미네랄을 함유한 원료를 적용하였고, 마그네슘은 충분한 함량을 효율적으로 제공할 수 있는 고순도 산화마그네슘을 적용</li>
+    <li>특히 칼슘·마그네슘 복합 제품은 두 미네랄 모두 필요량이 큰 영양소이므로, 충분한 함량 확보와 섭취 편의성을 동시에 고려한 설계가 중요함</li>
+    <li>산화마그네슘은 높은 원소 마그네슘 함량을 가지고 있어 동일한 마그네슘 함량을 보다 작은 제형으로 구현할 수 있음.
+      <ul>
+        <li>따라서, 칼슘마그네슘 복합제품에서는 마그네슘보다 많은 일일 섭취량이 요구되는 칼슘을 고려하여, 산화마그네슘을 사용하는 것이 정제 크기 측면에서 유리하며 표준화된 원료 선택됨</li>
+        <li>이를 통해 불필요한 제형 크기 증가 없이 칼슘 300mg과 마그네슘 150mg을 안정적으로 공급할 수 있도록 설계 → 글루콘산마그네슘 대비 약 12배 많이 함유
+          <ul>
+            <li>산화마그네슘(MgO) 원소 Mg 비율: 약 60.3%</li>
+            <li>락트산마그네슘(C6H10MgO6) 원소 Mg 비율: 약 12.0%</li>
+            <li>글루콘산마그네슘(C12H22MgO14) 원소 Mg 비율: 약 5.9%</li>
+          </ul>
+        </li>
+        <li>킬레이트 마그네슘은 Mg 원소 함유비율도 적으며, 한국 식약처에서 건강기능식품 원료로 인정하지 않음.</li>
+      </ul>
+    </li>
+    <li>획일적인 함량만 제공하는 일반 영양제와 달리, 알고케어는 개인의 연령, 성별, 건강 상태, 식습관, 건강 목표 등을 고려하여 필요 시 칼슘과 마그네슘의 공급량을 추가 조절할 수 있는 개인 맞춤형 영양 설계를 지원</li>
+    <li>원료 형태 하나만을 강조하기보다 원료 품질, 충분한 함량, 섭취 편의성, 제형 최적화, 개인 맞춤 영양 설계를 종합적으로 고려하여 개발된 칼슘·마그네슘 포뮬러</li>
+    <li>미니정제 1알당 칼슘 21.43mg, 마그네슘 10.71mg으로 생애주기 및 요구량에 따른 개별화된 맞춤 조절에 용이</li>
+  </ul>
+  <span class="price">1일 섭취량 기준 한달분 가격 : 약 14,571원 / 1개월</span>
+  <ul>
+    <li>칼슘&amp;마그네슘 품질 판단기준 : 다음 사항 중 4개 이상 만족 하면 프리미엄
+      <ul>
+        <li>1일 섭취량이 높은 칼슘마그네슘 함량을 미니 정제 안에서 효율적으로 채울 수 있는 마그네슘 형태 사용 여부</li>
+        <li>고객이 체감 가능한 복용 섭취감과 함량 맞춤형 복용이 가능한지 여부</li>
+        <li>원료 출처 및 제조사 구성의 신뢰감(글로벌 GMP, ISO 인증 보유, 유럽 EFSA 등록, EU 규격 충족)</li>
+        <li>초소형 정제 구현에 기여하는 고함량 원료 선택의 기술적 합리성</li>
+        <li>한국 기준, 규제 환경 내에서 사용 가능한 원료에서 프리미엄 수준인지 판단: ( 킬레이트마그네슘, 킬레이트칼슘 사용 불가)</li>
+      </ul>
+    </li>
+    <li>알고케어 뉴트리션 칼슘&amp;마그네슘 주원료 및 부원료 정보</li>
+  </ul>
+  <div class="tscroll"><table class="num-table">
+    <thead><tr>
+      <th>주원료 (66 %)<br>ㄴ 부원료 (34%)</th><th>기능성 명칭</th><th>원료명</th><th>제조사</th><th>제조국(원산지)</th><th>1알당 함량</th><th>1일 섭취량 당 함량<br>135 mg/정 * 14정</th><th>1일 최대섭취량 당 함량<br>135 mg/정 * 23정</th><th>1일 영양성분 기준치 (%)</th><th>% 기준치</th><th>안전적용률</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>주원료</td><td>칼슘</td><td>해조분말F (칼슘 32%, 마그네슘2.2%)</td><td>Microferm</td><td>영국</td><td>21.43 mg</td><td>300 mg</td><td>492.9mg</td><td>700 mg</td><td>43 %</td><td>94.59%</td></tr>
+      <tr><td>주원료</td><td>마그네슘</td><td></td><td></td><td></td><td>10.71 mg</td><td>150 mg (20.6+128+1.4)</td><td>246.4mg</td><td>315 mg</td><td>48 %</td><td>94.24%</td></tr>
+      <tr class="sub-row"><td>ㄴ 세부 주원료 .1</td><td>ㄴ 해조분말 F</td><td>해조분말F (칼슘 32%, 마그네슘2.2%)</td><td>Microferm</td><td>영국</td><td>1.47mg</td><td>20.6 mg</td><td>33.81mg</td><td>315 mg</td><td>6.5 %</td><td></td></tr>
+      <tr class="sub-row"><td>ㄴ 세부 주원료 .2</td><td>ㄴ산화마그네슘</td><td>산화마그네슘 (마그네슘60%)</td><td>CALMAGS GMBH</td><td>독일</td><td>9.14mg</td><td>128 mg</td><td>210.22mg</td><td>315 mg</td><td>40.6 %</td><td></td></tr>
+      <tr class="sub-row"><td>ㄴ 세부 주원료 .3</td><td>ㄴ스테아린산마그네슘</td><td>스테아린산마그네슘 (마그네슘 4.5%)</td><td>FACI ASIA PACIFIC</td><td>싱가포르</td><td>0.1mg</td><td>1.4 mg</td><td>2.3mg</td><td>315 mg</td><td>0.46 %</td><td></td></tr>
+    </tbody>
+  </table></div>
+
+  <!-- 6 코큐텐 -->
+  <div class="prod"><span class="num">06</span><h3>알고케어 뉴트리션 장용성 코큐텐</h3></div>
+  <span class="tag">건강기능식품 _ [고시형] 제품</span>
+  <span class="claim">항산화 및 높은 혈압 감소에 도움을 줄 수 있음</span>
+  <ul>
+    <li>Global Merchant사의 GMO-Free 순도 98% 규격원료 코큐텐 사용</li>
+    <li>알고케어 뉴트리션 장용성 코큐텐 주원료 및 부원료 정보</li>
+    <li>위산에는 녹지 않고 장(pH 6.8 이상)에서만 안전하게 녹는 장용성 코팅(서흥 특허)이 된 장용성 코큐텐 캡슐</li>
+    <li>사이즈 OV 7.5, OV2 장용코팅 연질캡슐로 시중 평균 대비 작은 알로 설계되어, 목넘김이 편하고, 개별화된 용량 조절이 가능</li>
+    <li>알고케어 뉴트리션 장용성 코큐텐은 1알당 CoQ10 100mg을 제공하여, 캡슐 크기 대비 고함량 설계로 1알 섭취로도 식약처 코엔자임Q10 기능성 만족</li>
+    <li>유비퀴논 성분 사용으로, 원료의 안정성을 확보
+      <ul>
+        <li>유비퀴놀은 유비퀴논(코큐텐)의 환원형으로 전자를 갖고 있어, 상당히 불안정한 형태</li>
+        <li>유비퀴논(코큐텐)은 흡수만 되면, 체내에서 대부분 문제 없이 유비퀴놀으로 전환됨.</li>
+        <li>따라서, 유비퀴놀인지 유비퀴논인지 여부 보다, 유비퀴논의 흡수율이 중요한 이슈임.</li>
+        <li>알고케어 뉴트리션 장용성 코큐텐은 코큐텐원료를 기름에 버무린 연질캡슐 제형으로 원료의 안정성을 높임.</li>
+        <li>현재 우리나라의 건강기능식품 기능성은 유비퀴논 형태의 코큐텐만 인정을 받았으며, 유비퀴놀은 2019년 12월 20일자로 개별 인정형 원료 인정 폐지됨.</li>
+        <li>유비퀴논, 유비퀴놀의 차이보다, 제형이 혈중 코큐텐 AUC 상승 데이터에 더 중요하다는 논문 <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7278738/">Bioavailability of Coenzyme Q10: An Overview of the Absorption Process and Subsequent Metabolism</a></li>
+      </ul>
+    </li>
+  </ul>
+  <span class="price">1일 섭취량 기준 한달분 가격 : 약 14,800원 / 1개월</span>
+  <ul>
+    <li>코큐텐 품질 판단기준 : 다음 사항 중 4개 이상 만족 하면 프리미엄 (갯수 기준 판단 엄수)
+      <ul>
+        <li>국내 건강기능식품 코엔자임Q10 기능성으로 인정되는 유비퀴논 사용 여부</li>
+        <li>연질캡슐 사용으로 유비퀴논 흡수에 최적화된 제형 여부</li>
+        <li>코엔자임Q10의 순도, 규격화 수준, 유효성분 함량, 산화 안정성, 제형 설계를 명확하게 공개</li>
+        <li>식약처 기준 1일 섭취량 코엔자임Q10 100 mg 이상을 안정적으로 제공</li>
+        <li>제조사 정보가 식별 가능한지 여부</li>
+        <li>섭취량 조절 가능성 등 복용 설계가 우수한지 여부</li>
+        <li>초소형 캡슐 등 소비자가 체감 가능한 제형 완성도가 높은지 여부</li>
+      </ul>
+    </li>
+    <li>알고케어 뉴트리션 장용성 코큐텐 주원료 및 부원료 정보</li>
+  </ul>
+  <div class="tscroll"><table class="num-table">
+    <thead><tr>
+      <th>주원료 (34 %)<br>ㄴ 부원료 (66%)</th><th>원료명</th><th>제조사</th><th>제조국(원산지)</th><th>1알당 CoQ10 함량</th><th>1일 섭취량 당 CoQ10 함량<br>300 mg/캡슐 * 1캡슐</th><th>1일 최대섭취량 당 함량<br>300 mg/캡슐 * 3캡슐</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>주원료</td><td>코엔자임Q10 (98%)</td><td>Global Merchant</td><td>인도</td><td>100 mg</td><td>100 mg</td><td>300 mg</td></tr>
+    </tbody>
+  </table></div>
+
+  <!-- 7 루테인지아잔틴 -->
+  <div class="prod"><span class="num">07</span><h3>알고케어 뉴트리션 장용성 루테인지아잔틴</h3></div>
+  <span class="tag">건강기능식품 _ [개별인정형_2024-25호 마리골드꽃추출물(지아잔틴함유)] 제품</span>
+  <span class="claim">노화로 인해 감소될 수 있는 황반색소밀도를 유지하여 눈 건강에 도움을 줄 수 있음.</span>
+  <ul>
+    <li>황반 전체에 넓게 분포한 루테인과, 황반 중심부에 집중 분포한 지아잔틴 복합 설계</li>
+    <li>미국 NEI(National Eye Institute) 주도 대규모 임상시험인 AREDS2에서 사용된 루테인 10 mg, 지아잔틴 2 mg 배합을 참고한 균형있는 비율 설계</li>
+    <li>US-FDA 및 EU-GMP 인증 글로벌 원료사 BIO-GEN EXTRACTS PVT. LTD 사용(국내 인증사_LG생활건강)</li>
+    <li>사이즈 OV 7.5, OV2 장용코팅 연질캡슐로, 목넘김이 편하고, 개별화된 용량 조절이 가능
+      <ul><li>1알당 루테인 10mg, 지아잔틴 2mg 배합으로 적은 용량 부터, 루테인 20mg, 지아잔틴 4mg 요구량도 커버 가능</li></ul>
+    </li>
+    <li>위산에는 녹지 않고 장(pH 6.8 이상)에서 안전하게 녹는 장용성 코팅(서흥 특허)이 된 제형으로 위에서 바로 풀리지 않고, 장에서 녹도록 설계되어 위가 예민한 분들도 비교적 부담 없이 섭취 가능</li>
+  </ul>
+  <span class="price">1일 섭취량 기준 한달분 가격 : 약 13,200원 / 1개월</span>
+  <ul>
+    <li>루테인지아잔틴 품질 판단기준 : 다음 사항 중 4개 이상을 만족 하면 프리미엄 (갯수 기준 판단 엄수)
+      <ul>
+        <li>제조사가 식별 가능하고, FDA/GMP 인증 글로벌 원료사 사용 여부</li>
+        <li>기능성 원료의 규격화 수준이나 유효성분 함량이 일반 유통 제품 대비 높은지</li>
+        <li>원료 스펙 표기가 소비자 관점에서 충분히 투명한지</li>
+        <li>섭취량 조절 가능성 등 복용 설계가 우수한지</li>
+        <li>초소형 캡슐 등 소비자가 체감 가능한 제형 완성도가 높은지</li>
+      </ul>
+    </li>
+    <li>알고케어 뉴트리션 장용성 루테인지아잔틴 주원료 및 부원료 정보</li>
+  </ul>
+  <div class="tscroll"><table class="num-table">
+    <thead><tr>
+      <th>주원료 (62.5 %)<br>ㄴ 부원료 (37.5%)</th><th>기능성 명칭</th><th>원료명</th><th>제조사</th><th>제조국(원산지)</th><th>1알당 함량</th><th>1일 섭취량 당 함량<br>300 mg / cap</th><th>1일 최대섭취량 당 함량<br>300 mg / 2cap</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>주원료</td><td>루테인지아잔틴</td><td>루테인지아잔틴</td><td>BIO-GEN EXTRACTS PVT. LTD</td><td>인도</td><td>12.00 mg</td><td>12 mg</td><td>24 mg</td></tr>
+      <tr class="sub-row"><td></td><td>ㄴ루테인</td><td></td><td></td><td></td><td>ㄴ 10 mg</td><td>ㄴ 10 mg</td><td>ㄴ 20 mg</td></tr>
+      <tr class="sub-row"><td></td><td>ㄴ 지아잔틴</td><td></td><td></td><td></td><td>ㄴ 2 mg</td><td>ㄴ 2 mg</td><td>ㄴ 4 mg</td></tr>
+    </tbody>
+  </table></div>
+
+  <!-- 8 밀크씨슬 -->
+  <div class="prod"><span class="num">08</span><h3>알고케어 뉴트리션 밀크씨슬</h3></div>
+  <span class="tag">건강기능식품 _ [고시형] 제품</span>
+  <span class="claim">간 건강에 도움을 줄 수 있음</span>
+  <ul>
+    <li>글로벌 식물성 원료사인 이탈리아의 INDENA사의 밀크씨슬 원료</li>
+    <li>지표 성분인 실리마린 60%로 규격화 원료 사용</li>
+    <li>미니정제 1정당 실리마린 43.33mg로 43.44mg 섭취량부터 390mg섭취량까지 저함량에서 고함량까지 다양한 용량 조합이 가능하여, 개별화된 용량 제공 가능</li>
+  </ul>
+  <span class="price">1일 섭취량 기준 한달분 가격 : 약 10,200원 / 1개월</span>
+  <ul>
+    <li>밀크씨슬 품질 판단기준 : 다음 사항 중 여러개를 만족 하면 프리미엄
+      <ul>
+        <li>글로벌 프리미엄 브랜드 주원료 사용 여부</li>
+        <li>제조사 평가는 GMP/ISO 등 품질 인증 보유 여부를 중점적으로 판단</li>
+        <li>소비자가 체감 가능한 제형 완성도</li>
+      </ul>
+    </li>
+    <li>알고케어 뉴트리션 밀크씨슬 주원료 및 부원료 정보</li>
+  </ul>
+  <div class="tscroll"><table class="num-table">
+    <thead><tr>
+      <th>주원료 (65.7 %)<br>ㄴ 부원료 (35.3%)</th><th>기능성 명칭</th><th>원료명</th><th>제조사</th><th>제조국(원산지)</th><th>1알당 '실리마린' 함량</th><th>1일 섭취량 당 '실리마린' 함량<br>110 mg/정 * 3정</th><th>1일 최대섭취량 당 '실리마린' 함량<br>110 mg/정 * 9정</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>주원료</td><td>밀크씨슬</td><td>밀크씨슬추출물분말(실리마린 60%)</td><td>INDENA</td><td>이탈리아</td><td>43.333 mg</td><td>130 mg</td><td>390 mg</td></tr>
+    </tbody>
+  </table></div>
+
+  <!-- 9 시너지 마그네슘 -->
+  <div class="prod"><span class="num">09</span><h3>알고케어 시너지 마그네슘</h3></div>
+  <span class="tag">건강기능식품 _ [영양소] 제품</span>
+  <span class="claim">1. 에너지 이용에 필요</span>
+  <span class="claim">2. 신경과 근육 기능 유지에 필요</span>
+  <ul>
+    <li>해조유래 아쿠아민 마그네슘을 중심으로, 2종류의 유기산 마그네슘인 젖산 마그네슘,글루콘산 마그네슘을 조합하여 흡수율과 위장장애를 개선</li>
+    <li>3종 마그네슘 복합 설계로, 산화마그네슘 단일 설계와 차별화한 마그네슘 설계</li>
+    <li>아쿠아민 마그네슘[Marigot사 Aquamin®] 을 메인으로 배치
+      <ul>
+        <li>아이슬란드 청정 해역, 조류에서 추출한 아쿠아민 마그네슘은, 마그네슘 뿐 아니라 72종의 천연 미네랄이 함께 배합되어, 마그네슘과 미네랄이 체내에 적절한 균형을 이루도록 설계</li>
+        <li>인증정보: SO 9001, FSSC220000 Certified Manufacturing Facility, Halal, Kosher</li>
+        <li>아쿠아민마그네슘 공식 정보: <a href="https://aquamin.com/wp-content/uploads/2022/05/Aquamin-brochure_Marine-Magnesium-Mg.pdf">aquamin.com</a></li>
+        <li>Aquamin-Mg가 산화마그네슘보다 높은 in vitro 생체접근성·생체이용률을 보이고, 염화마그네슘과 유사한 흡수 프로파일을 나타냈으며, 마그네슘 외 72종의 미량 미네랄을 포함하는 해양 유래 복합 미네랄 원료임을 보고한 연구 <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6073474/">Bioaccessibility and Bioavailability of a Marine-Derived Multimineral, Aquamin-Magnesium</a></li>
+      </ul>
+    </li>
+    <li>킬레이트 마그네슘은 Mg 원소 함유비율도 적으며, 한국 식약처에서 건강기능식품 원료로 인정하지 않음.</li>
+    <li>미니정제 1정당 12.8mg 마그네슘 함유로 생애 주기에 따라 요구량이 다른 마그네슘의 특성을 잘 반영하여, 개인화된 섭취 가능</li>
+  </ul>
+  <span class="price">1일 섭취량 기준 한달분 가격 : 약 12,000원 / 1개월</span>
+  <ul>
+    <li>시너지 마그네슘 품질 판단기준 : 다음 사항 중 여러개를 만족 하면 프리미엄 (* 한국에서 일반적으로 유통되는 마그네슘 단일제품 평균과의 비교)
+      <ul>
+        <li>주원료의 차별성</li>
+        <li>흡수율을 고려한 복합 마그네슘 설계</li>
+        <li>브랜드 원료 사용 여부</li>
+        <li>제조사 평가는 GMP/ISO 등 품질 인증 보유 여부를 중점적으로 판단</li>
+        <li>소비자가 체감 가능한 제형 완성도</li>
+        <li>참고: 한국 식품의약품안전처에서 인정한 마그네슘 원료 리스트 글루콘산마그네슘, 산화마그네슘, ,수산화마그네슘(아쿠아민마그네슘), 염화마그네슘, 탄산마그네슘, 황산마그네슘, 제이인산마그네슘, 제삼인산마그네슘, 젖산마그네슘, 스테아린산마그네슘 (* 킬레이트마그네슘은 사용 불가)</li>
+      </ul>
+    </li>
+    <li>알고케어 시너지 마그네슘 주원료 및 부원료 정보</li>
+  </ul>
+  <div class="tscroll"><table class="num-table">
+    <thead><tr>
+      <th>주원료 (80.24 %)<br>ㄴ 부원료 (19.76%)</th><th>기능성 명칭</th><th>원료명</th><th>제조사</th><th>제조국(원산지)</th><th>1알당 함량</th><th>1일 섭취량 당 함량<br>(120 mg/정 * 7정)</th><th>1일 최대섭취량 당 함량<br>(120 mg/정 * 15정)</th><th>1일 영양성분 기준치 (%)</th><th>% 기준치</th><th>안전적용률</th>
+    </tr></thead>
+    <tbody>
+      <tr><td><strong>주원료</strong></td><td><strong>마그네슘</strong></td><td></td><td></td><td></td><td><strong>25.71 mg</strong></td><td>180.0mg</td><td>385.7mg</td><td><strong>315 mg</strong></td><td><strong>57 %</strong></td><td>93.08%</td></tr>
+      <tr class="sub-row"><td>ㄴ 세부 주원료 .1</td><td>ㄴ아쿠아민 마그네슘</td><td>아쿠아민 마그네슘(마그네슘33%)</td><td>Superior Powders Ltd</td><td>영국</td><td>24.6mg</td><td>ㄴ 172.2 mg</td><td>369mg</td><td></td><td></td><td></td></tr>
+      <tr class="sub-row"><td>ㄴ 세부 주원료 .2</td><td>ㄴ젖산 마그네슘</td><td>젖산마그네슘 (마그네슘 10%)</td><td>NOVICHEM SP.ZO.O.</td><td>폴란드</td><td>0.67mg</td><td>ㄴ 4.7 mg</td><td>10mg</td><td></td><td></td><td></td></tr>
+      <tr class="sub-row"><td>ㄴ 세부 주원료 .3</td><td>ㄴ글루콘산 마그네슘</td><td>글루콘산마그네슘 (마그네슘 5.5%)</td><td>Novotech Nutraceuticals,Inc.</td><td>미국</td><td>0.37mg</td><td>ㄴ 2.6 mg</td><td>5.55mg</td><td></td><td></td><td></td></tr>
+      <tr class="sub-row"><td>ㄴ 세부 주원료 .4</td><td>ㄴ 스테아린산 마그네슘</td><td>스테아린산마그네슘(마그네슘 4.5%)</td><td>FACI ASIA PACIFIC</td><td>싱가포르</td><td>0.07mg</td><td>ㄴ 0.5 mg</td><td>1.05mg</td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table></div>
+
+  <!-- 10 홍경천테아닌 -->
+  <div class="prod"><span class="num">10</span><h3>알고케어 뉴트리션 홍경천&amp;테아닌</h3></div>
+  <span class="tag">건강기능식품 _ [고시형] 제품</span>
+  <span class="claim">1. 테아닌 : 스트레스로 인한 긴장완화에 도움을 줄 수 있음</span>
+  <span class="claim">2. 홍경천 추출물 : 스트레스로 인한 피로 개선에 도움을 수 있음</span>
+  <ul>
+    <li>L-테아닌: Molecules Bio Labs사의 98% 이상의 고순도 원료 사용
+      <ul><li>Molecules Bio Labs사 공식자료 기준 인증 정보: FSSAI - Certified, GMP - Certified Facilities, FSSC 22000 - Certified</li></ul>
+    </li>
+    <li>홍경천: 스페인 Nektium사의 로사빈 2.1% 표준화 홍경천추출물
+      <ul><li>스페인 식물추출물 원료사 Nektium Pharma SL 공식자료 기준 인증 정보: GMP, FSSC 22000, ISO 14001 인증을 보유</li></ul>
+    </li>
+    <li>스트레스 상황에서 컨디션 관리를 돕는 홍경천과, 긴장을 완화해 차분한 상태 유지를 돕는 L-테아닌을 조합으로, 일상 속 스트레스 케어에 시너지를 낼 수 있도록 배합 설계</li>
+    <li>미니정제 1정당 테아닌 33.33mg, 로사빈 0.7mg로 개인에게 필요한 양을 저함량부터 고함량까지 정밀하게 조절하며 섭취 가능</li>
+  </ul>
+  <span class="price">1일 섭취량 기준 한달분 가격 : 약 42,600원 / 1개월</span>
+  <ul>
+    <li>홍경천&amp;테아닌 품질 판단기준 : 다음 사항 중 여러개를 만족 하면 프리미엄
+      <ul>
+        <li>주원료의 차별성</li>
+        <li>로사빈: 글로벌 대표 브랜드 원료 사용</li>
+        <li>L-테아닌: 98% 이상 고순도 원료 사용</li>
+        <li>제조사 평가는 GMP/ISO 등 품질 인증 보유 여부</li>
+        <li>소비자가 체감 가능한 제형 완성도</li>
+      </ul>
+    </li>
+    <li>알고케어 뉴트리션 홍경천&amp;테아닌 주원료 및 부원료 정보</li>
+  </ul>
+  <div class="tscroll"><table class="num-table">
+    <thead><tr>
+      <th>주원료 (67.35 %)<br>ㄴ 부원료 (22.65%)</th><th>기능성 명칭</th><th>원료명</th><th>제조사</th><th>제조국(원산지)</th><th>1알당 함량</th><th>1일 섭취량 당 함량 (일)<br>100 mg/ 정 * 6 정</th><th>1일 최대섭취량 당 함량 (일)<br>100 mg/ 정 * 12 정</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>주원료</td><td>L-테아닌</td><td>L-테아닌(L-테아닌으로 98% 이상)</td><td>Molecules bio labs</td><td>인도</td><td>33.33mg</td><td>200 mg</td><td>400 mg</td></tr>
+      <tr><td>주원료</td><td>홍경천추출물</td><td>홍경천추출물(로사빈2.1%)</td><td>Nektium</td><td>스페인</td><td>33.33mg (로사빈으로 0.7mg)</td><td>200mg (로사빈으로 4.2 mg)</td><td>400mg (로사빈으로 8.4 mg)</td></tr>
+    </tbody>
+  </table></div>
+
+  <!-- 11 바나바 -->
+  <div class="prod"><span class="num">11</span><h3>알고케어 뉴트리션 바나바</h3></div>
+  <span class="tag">건강기능식품 _ [고시형] 제품</span>
+  <span class="claim">1. 크롬 : 체내 탄수화물, 지방, 단백질 대사에 관여</span>
+  <span class="claim">2. 바나바잎 추출물 : 식후 혈당상승 억제에 도움을 줄 수 있음</span>
+  <ul>
+    <li>식후 혈당 관리를 돕는 바나바잎추출물과 탄수화물 대사에 관여하는 크롬을 함께 배합해, 혈당 관리 목적성을 강화</li>
+    <li>크롬: 글로벌 미생물 효모 전문 기업인 LALLEMAND INC 사의 식용건조효모 사용</li>
+    <li>바나바: 2004년 설립된 식물 추출물 제조업체인 STAR HI사의 20% 표준화된 원료 사용
+      <ul><li>GMP, FSSC, HACCP, Halal, Kosher, AYUSH GMP 인증 : <a href="https://starhiherbs.com/products/banaba-leaf-extract">Star Hi Herbs | Top Herbal Extract Manufacturer in India</a></li></ul>
+    </li>
+  </ul>
+  <span class="price">1일 섭취량 기준 한달분 가격 : 약 9,480원 / 1개월</span>
+  <ul>
+    <li>바나바 품질 판단기준 : 다음 사항 중 4개 이상 만족 하면 프리미엄 (갯수 기준 판단 엄수)<br>참고: 코로솔산 및 크롬은 유효 섭취량이 극소량이므로, 정제 구현상 부형제 비중이 높아지는 것이 구조적으로 불가피하므로, 부형제 비중을 품질 저하 요인으로 평가하지 않음.
+      <ul>
+        <li>원료 스펙 표기가 소비자 관점에서 충분히 투명한지</li>
+        <li>제조사 정보가 투명하게 식별 가능한지</li>
+        <li>바나바(코로솔산) 원료사 GMP, FSSC등 글로벌 인증 보유 여부</li>
+        <li>지표성분인 코로솔산을 국내 인정 범위 내 충분량이 설계되어, 미니정제 1알로 간편한 섭취 가능 여부</li>
+        <li>크롬 함유 여부</li>
+      </ul>
+    </li>
+    <li>알고케어 뉴트리션 바나바 주원료 및 부원료 정보</li>
+  </ul>
+  <div class="tscroll"><table class="num-table">
+    <thead><tr>
+      <th>주원료 (25.25 %)<br>ㄴ 부원료 (74.75%)</th><th>기능성 명칭</th><th>원료명</th><th>제조사</th><th>제조국(원산지)</th><th>1알당 함량</th><th>1일 섭취량 당 함량 (일)<br>100 mg/ 정 * 1정</th><th>1일 최대섭취량 당 함량 (일)<br>100 mg/ 정 * 1정</th><th>안전적용률</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>주원료</td><td>크롬</td><td>식용건조효모(크롬0.2%)</td><td>LALLEMAND INC</td><td>에스토니아</td><td>30μg</td><td>30μg</td><td>30μg</td><td>80.00%</td></tr>
+      <tr><td>주원료</td><td>바나바잎추출물</td><td>바나바잎추출물(코로솔산 20%)</td><td>STAR HI</td><td>인도</td><td>(코로솔산으로) 1.3mg</td><td>(코로솔산으로) 1.3mg</td><td>(코로솔산으로) 1.3mg</td><td>100.00%</td></tr>
+    </tbody>
+  </table></div>
+
+  <!-- 12 보스웰리아 -->
+  <div class="prod"><span class="num">12</span><h3>알고케어 뉴트리션 보스웰리아</h3></div>
+  <span class="tag">건강기능식품 _ [개별인정형_2022-17호 보스웰리아추출물(SERRATRIN)] 제품</span>
+  <span class="claim">관절 및 연골 건강에 도움을 줄 수 있음.</span>
+  <ul>
+    <li>LAILA NUTRACEUTICALS사의 SERRATRIN 사용: 식약처에서 인정한 개별인정형 보스웰리아 원료 사용
+      <ul>
+        <li>보스웰리아의 핵심 지표 물질 AKBA + KBA를 82 mg/g 로 표준화 시킨 원료</li>
+        <li>LAILA NUTRACEUTICALS 공식 자료 기준 인증 정보: US FDA Registered, cGMP, FSSC 22000, Kosher, Halal, Non-GMO &amp; Allergen-Free, EU Compliance <a href="https://lailanutra.com/">Laila Nutraceuticals</a></li>
+      </ul>
+    </li>
+    <li>LI13019F1(SERRATRIN®)이 골염증 관련 지표를 억제하고, 골관절염 동물모델에서 통증 완화 및 관절연골 보호 가능성을 보였다고 보고한 전임상 연구 : <a href="https://pubmed.ncbi.nlm.nih.gov/32565872/">NCBI - WWW Error Blocked Diagnostic</a></li>
+    <li>미니정제 1정당 주원료 50mg으로, 저함량부터 고함량까지 개별화된 요구를 반영하기 용이.</li>
+  </ul>
+  <span class="price">1일 섭취량 기준 한달분 가격 : 약 22,800원 / 1개월</span>
+  <ul>
+    <li>보스웰리아 품질 판단기준 : 다음 사항 중 여러개를 만족 하면 프리미엄
+      <ul>
+        <li>글로벌 브랜드 주원료 사용 여부</li>
+        <li>기능성 원료 구성이 명확한지</li>
+        <li>원료 스펙 표기가 소비자 관점에서 충분히 투명한지</li>
+        <li>섭취량 조절 가능성 등 복용 설계가 우수한지</li>
+        <li>초소형 정제 등 소비자가 체감 가능한 제형 완성도가 높은지</li>
+      </ul>
+    </li>
+    <li>알고케어 뉴트리션 보스웰리아 주원료 및 부원료 정보</li>
+  </ul>
+  <div class="tscroll"><table class="num-table">
+    <thead><tr>
+      <th>주원료 (55.56 %)<br>ㄴ 부원료 (44.44%)</th><th>기능성 명칭</th><th>원료명</th><th>제조사</th><th>제조국(원산지)</th><th>1알당 함량</th><th>1일 섭취량 당 함량<br>90 mg/정 * 8정</th><th>1일 최대섭취량 당 함량 (일)<br>90 mg/정 * 8정</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>주원료</td><td>보스웰리아추출물</td><td>보스웰리아추출물분말 (SERRATRIN, AKBK와 KBA의 합 82mg/g)</td><td>LAILA NUTRACEUTICALS</td><td>인도</td><td>50.00 mg</td><td>400mg</td><td>400mg</td></tr>
+    </tbody>
+  </table></div>
+
+  <!-- 13 녹차카테킨 -->
+  <div class="prod"><span class="num">13</span><h3>알고케어 뉴트리션 녹차카테킨</h3></div>
+  <span class="tag">건강기능식품 _ [고시형] 제품</span>
+  <span class="claim">녹차추출물 : 항산화 / 체지방 감소 / 혈중 콜레스테롤 개선에 도움을 줄 수 있음.</span>
+  <ul>
+    <li>천연·유기농 식물추출물 중심의 원료사 미국 UNIAREA사 녹차추출분말 사용
+      <ul><li>UNIAREA사 공식 인증 정보: ISO 14001, ISO 9001, ISO 22000, FSSC 22000, HACCP, Kosher, Halal, cGMP Compliant, GMP+ 인증정보 확인 링크 : <a href="https://www.uniareal.com/who-we-are">WHO WE ARE - UNIAREA LLC</a></li></ul>
+    </li>
+    <li>카테킨 70%: 녹차추출물의 지표 성분인 폴리페놀, 카테킨 함량을 고함량으로 표준화한 원료</li>
+    <li>EGCG도 45–55%로 표준화된 원료로, 카테킨의 대표 성분까지 별도로 관리</li>
+    <li>1알당 42.86mg 카테킨이 들어있어, 개별화된 맞춤 조절 가능</li>
+  </ul>
+  <span class="price">1일 섭취량 기준 한달분 가격 : 약 17,400원 / 1개월</span>
+  <ul>
+    <li>녹차카테킨 품질 판단기준 : 다음 사항 중 4개 이상을 만족 하면 프리미엄 (갯수 기준 판단 엄수)
+      <ul>
+        <li>품질 인증 및 관리가 되는 글로벌 브랜드 원료사 사용 여부</li>
+        <li>기능성 원료 구성이 명확한지</li>
+        <li>원료 스펙 표기가 소비자 관점에서 충분히 투명한지</li>
+        <li>섭취량 조절 가능성 등 복용 설계가 우수한지</li>
+        <li>초소형 정제 등 소비자가 체감 가능한 제형 완성도가 높은지</li>
+      </ul>
+    </li>
+    <li>알고케어 뉴트리션 녹차카테킨 주원료 및 부원료 정보</li>
+  </ul>
+  <div class="tscroll"><table class="num-table">
+    <thead><tr>
+      <th>주원료 (61.22 %)<br>ㄴ 부원료 (38.78%)</th><th>기능성 명칭</th><th>원료명</th><th>제조사</th><th>제조국(원산지)</th><th>1알당 함량</th><th>1일 섭취량 당 함량 (일)<br>100 mg/ 정 * 7정</th><th>1일 최대섭취량 당 함량 (일)<br>100 mg/ 정 * 7정</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>주원료</td><td>카테킨</td><td>녹차추출물분말 (카테킨 70%, EGCG 45-55 %)</td><td>UNIAREA</td><td>미국</td><td>(카테킨으로)42.86 mg</td><td>(카테킨으로)300 mg</td><td>(카테킨으로)300 mg</td></tr>
+    </tbody>
+  </table></div>
+
+  <!-- 14 멜라토닌 -->
+  <div class="prod"><span class="num">14</span><h3>알고케어 뉴트리션 멜라토닌</h3></div>
+  <span class="tag">일반식품 _ [과.채가공품] 제품</span>
+  <ul>
+    <li>합성이 아닌 식물성 피스타치오 유래 멜라토닌으로, melostacio™ 3% 표준화 원료 사용</li>
+    <li>1정당 멜라토닌 함량 0.67 mg으로 복용초기 저함량으로 부담없이 시작 가능하며, 개별화된 멜라토닌 요구량 제공에 용이
+      <ul>
+        <li>시중 멜라토닌(일반적인 저함량 제품: 2mg) 대비 낮은 함량으로 설계</li>
+        <li>복용 초기에는 낮은 용량부터 시작을 권장하는 멜라토닌 섭취 원칙에 맞춘 설계</li>
+      </ul>
+    </li>
+    <li>멜라토닌은 국내 건강기능식품이 아닌 식품으로서, 알고케어 멜라토닌은 원료의 퀄리티와 개인맞춤 가능성에 최적화</li>
+  </ul>
+  <span class="price">1일 섭취량 기준 한달분 가격 : 약 13,500원 / 1개월</span>
+  <ul>
+    <li>멜라토닌 품질 판단기준 : 다음 사항 중 여러개를 만족 하면 프리미엄 (참고: 멜라토닌의 경우, 한국에서 건강기능식품으로 인정되지 않아 일반식품유형이 표준인 원료)
+      <ul>
+        <li>글로벌 브랜드 주원료 사용 여부</li>
+        <li>기능성 원료 구성이 명확한지</li>
+        <li>원료 스펙 표기가 소비자 관점에서 충분히 투명한지</li>
+        <li>섭취량 조절 가능성 등 복용 설계가 우수한지</li>
+        <li>초소형 정제 등 소비자가 체감 가능한 제형 완성도가 높은지</li>
+      </ul>
+    </li>
+    <li>알고케어 뉴트리션 멜라토닌 주원료 및 부원료 정보</li>
+  </ul>
+  <div class="tscroll"><table class="num-table">
+    <thead><tr>
+      <th>원료 구성<br>피스타치오 23%<br>이 외 76 %</th><th>원료명</th><th>제조사</th><th>제조국(원산지)</th><th>1알당 함량</th><th>1일 권장 섭취량<br>100 mg/정 * 3정</th>
+    </tr></thead>
+    <tbody>
+      <tr><td></td><td>피스타치오분말(멜라토닌 3%)</td><td>Botanic Healthcare Pvt. Ltd.</td><td>인도melostacio™</td><td>0.67 mg</td><td>멜라토닌 2 mg/일 권장</td></tr>
+    </tbody>
+  </table></div>
+
+</div>
+</body>
+</html>
